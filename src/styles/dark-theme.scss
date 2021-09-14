@@ -1,0 +1,437 @@
+@use "variables";
+@use "mixins";
+
+.dark {
+  // Theme colors for application
+  // This color changes the left nav and cards
+  --main-color: #396387;
+
+  // This color changes the main content background color and input backgrounds
+  --main-view-bg-color: #274770;
+
+  // Button and link styles
+  --disabled-color: var(--main-view-bg-color);
+  --button-border-radius: 20px;
+
+  // These two colors change the borders/underlines and font colors
+  --main-third-color: #AFD2E9;
+  --main-font-color: white;
+  --card-and-table-text-colors: white;
+  --main-alt-color: #48A8FF;
+
+  --field-name-color: ececec;
+  --field-value-color: var(--main-font-color);
+
+  //Material Colors
+  --md-theme-default-primary-on-background: var(--color-link-and-buttons);
+  --md-theme-default-primary: var(--color-link-and-buttons);
+
+  --md-theme-default-background: var(--main-color);
+  --md-theme-default-text-primary-on-background: var(--main-font-color);
+
+  // Define highlight colors
+  --md-theme-default-accent-on-background: var(--color-link-and-buttons);
+  --md-theme-default-text-primary-on-accent: var(--main-color);
+
+  .field-name {
+    color: var(--main-font-color);
+    opacity: .6;
+  }
+
+  .field-value {
+    color: var(--field-value-color);
+    font-weight: bold;
+  }
+
+  // Card and Page layouts =======================
+  .ds-card, .page-layout-content {
+    border-radius: var(--app-border-radius);
+
+    &.hide-content-background {
+      box-shadow: none;
+    }
+
+    // DsCard header
+    .ds-card-header {
+      color: var(--main-font-color) !important;
+    }
+  }
+
+  .page-layout {
+    overflow: visible;
+  }
+
+  .page-layout-content {
+    @include mixins.box-soft-shadow;
+  }
+
+  // Page title
+  .page-title {
+    color: var(--main-font-color);
+  }
+
+  // Main app left side bar =======================
+  .nav-area-left {
+    @include mixins.box-soft-shadow;
+    margin: 1rem;
+    border-radius: var(--app-border-radius);
+  }
+
+  // App Logo styles ===============================
+  .site-name, .site-name-short, .site-name-media {
+    color: var(--main-font-color);
+  }
+
+  // Nav styles ====================================
+  #leftNav {
+
+    // Admin header
+    .nav-item-header {
+      border-bottom-color: var(--main-view-bg-color);
+    }
+
+    // Admin header label
+    .nav-item-header .nav-item-header-label {
+      color: var(--main-font-color);
+    }
+
+    .site-name, .site-name-short, .site-name-media {
+      color: var(--main-font-color);
+    }
+
+    // Nav item
+    .nav-item, .nav-sub-item {
+      padding: 1rem;
+      margin: 1rem;
+      border: none;
+    }
+
+    .nav-item:hover, .nav-sub-item:hover {
+      border-radius: var(--app-border-radius);
+    }
+
+    .nav-item, .nav-sub-item, .nav-item-icon {
+      color: var(--main-font-color) !important;
+
+      // Nav icon
+      .nav-item-icon .md-icon {
+        color: var(--main-font-color) !important;
+      }
+    }
+
+    // Nav item border
+    .nav-item {
+      border-bottom-color: var(--main-view-bg-color);
+    }
+
+    // Selected nav item
+    :is(.nav-item, .nav-sub-item).selected {
+      font-weight: bold;
+      color: var(--button-color) !important;
+      @include mixins.box-inset-soft-shadow;
+      border-radius: var(--app-border-radius);
+      display: flex;
+      align-items: center;
+
+      // Selected nav icon
+      .nav-item-icon .md-icon {
+        color: var(--button-color) !important;
+      }
+    }
+  }
+
+  // Pagination grid styles ========================
+  .ds-pagination-grid-v2 {
+    box-shadow: none;
+  }
+
+  // Ag Grid theme =================================
+  .ag-theme-material {
+    // Grid colors
+    --row-font-color: var(--main-font-color);
+    --hover-color: var(--main-view-bg-color);
+
+    font-family: var(--main-font);
+
+    .ag-header {
+      font-family: inherit !important;
+    }
+
+    .ag-row-hover {
+      background-color: rgba(255,255,255, 0.3);
+      color: var(--main-font-color);
+    }
+  }
+
+  // Material theme overrides ======================
+  .md-button.md-icon-button {
+    @include mixins.box-soft-shadow;
+    background-color: var(--main-color);
+  }
+
+  // Page: Metrics =====================================
+  #metrics {
+    .venue-event-controls {
+      @include mixins.box-soft-shadow;
+    }
+
+    .metrics-card {
+      border-radius: var(--app-border-radius);
+      @include mixins.box-soft-shadow;
+    }
+
+    .metrics-card .description {
+      color: var(--main-font-color);
+    }
+
+    .metrics-card .icon {
+      color: var(--main-font-color) !important;
+    }
+
+    .metrics-card .icon-container {
+      background-color: transparent;
+      border-radius: 50%;
+    }
+
+    .ds-card, .metric-summary {
+      @include mixins.box-soft-shadow;
+    }
+
+    // DsCard
+    .ds-card {
+      padding: 2rem;
+
+      .ds-card-header {
+        color: var(--main-font-color) !important;
+      }
+    }
+
+
+
+    .metric-controls {
+      border: none;
+      overflow: hidden;
+    }
+
+    .metric-summary {
+      overflow: hidden !important;
+      border-radius: var(--app-border-radius);
+    }
+
+    .metric-summary .metric-item {
+      background: transparent;
+      border: none;
+    }
+  }
+
+  // Page: Venue Details ===============================
+  .venue-details {
+    .brand-card, .ds-card, .venue-detail-tables {
+      @include mixins.box-soft-shadow
+    }
+  }
+
+  // App controls ===================================
+
+  // DsInputWrapper
+  .ds-input-wrapper {
+    width: 100%;
+  }
+
+  // DsButton
+  .ds-button {
+    border-radius: var(--button-border-radius);
+  }
+
+  // DsSelect
+  .ds-select .selected-item, .ds-filter, .ds-input input {
+    @include mixins.box-inset-soft-shadow;
+    border-radius: var(--app-border-radius);
+    border-bottom: none;
+  }
+
+  .ds-input input {
+    border-bottom: none;
+  }
+
+  .ds-search {
+    border-bottom: none;
+    background-color: transparent;
+  }
+
+  .actions-renderer .md-button {
+    @include mixins.box-soft-shadow;
+  }
+
+  .actions-renderer .delete-icon {
+    color: var(--button-color) !important;
+  }
+
+  // Venue Event control bar
+  .venue-event-controls {
+    border-radius: var(--app-border-radius);
+    @include mixins.box-soft-shadow;
+
+    .event-date .date-value {
+      @include mixins.box-inset-soft-shadow;
+      max-height: 36px;
+      line-height: 36px;
+    }
+  }
+
+
+  // Forms =========================================
+
+  // VENUE FORM
+  #venueForm {
+    // Address block
+    .address-block {
+      width: 100%;
+      background: transparent;
+    }
+
+    // Actions container
+    .actions {
+      width: 100%;
+    }
+
+    // Address button label
+    .address-button-label {
+      color: var(--main-font-color);
+    }
+  }
+
+  // MODULE FORM
+  .settings-form .item-field-value  input {
+    @include mixins.box-inset-soft-shadow;
+  }
+
+  .settings-form .item-field-value input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2pt var(--button-color);
+  }
+
+  // BRAND FORM
+  .settings-form .item-field > .item-field-name {
+    color: var(--main-font-color);
+  }
+
+  // Modal =========================================
+
+  // Modal title
+  #ds-base-modal {
+    .modal-title {
+      color: var(--main-font-color);
+    }
+  }
+
+  // Module configuration form
+  .configuration-form {
+    label {
+      color: var(--main-font-color);
+    }
+  }
+
+  // Menu list
+  .md-menu-content-container .md-list {
+    font-family: var(--main-font) !important;
+  }
+
+  // Menu selected item
+  .md-list-item.selected  .md-list-item-container {
+    font-weight: bold;
+    color: var(--color-link-and-buttons);
+  }
+
+
+  /****** DATE PICKER ********/
+
+  // Datepicker header
+  .datepicker .header-picker {
+    background-color: var(--main-color) !important;
+  }
+
+  .v--modal {
+    background-color: var(--main-color) !important;
+    border-radius: var(--app-border-radius);
+  }
+}
+
+// OVERRIDE vue material theme colors
+.dark {
+
+  // theme default styles
+  .md-field.md-theme-default {
+    label {
+      padding: 0 1rem;
+      color: var(--main-font-color);
+    }
+
+    // MdSelect container
+    .md-select {
+      border: 2px solid var(--main-view-bg-color);
+      border-radius: var(--app-border-radius);
+    }
+
+    // MdInput and MdTextarea inputs
+    &.md-focused, &.md-has-value {
+      .md-input, .md-textarea {
+        padding: 0 1rem;
+        -webkit-text-fill-color: var(--color-link-and-buttons);
+      }
+    }
+  }
+}
+
+// Md Dialog theme
+.md-dialog.dark {
+  --md-theme-default-background: var(--main-color);
+  //--md-theme-default-primary-on-background: var(--main-font-color);
+
+  .md-dialog-container {
+    border-radius: var(--app-border-radius);
+    padding: 1rem;
+  }
+
+  .md-title {
+    color: var(--main-font-color);
+  }
+
+  .dialog-content {
+    color: var(--main-font-color);
+  }
+
+  .dialog-content .search-input {
+    margin: 1rem 0;
+    @include mixins.box-inset-soft-shadow;
+
+    input, .search-icon {
+      color: var(--main-font-color);
+
+      &::-webkit-input-placeholder {
+        color: var(--main-font-color);
+      }
+
+      &::-ms-input-placeholder {
+        color: var(--main-font-color);
+      }
+
+      &:-ms-input-placeholder {
+        color: var(--main-font-color);
+      }
+    }
+  }
+
+  .dialog-content .select-list {
+    box-shadow: none;
+    @include mixins.box-inset-soft-shadow;
+  }
+
+  .dialog-content .select-list .list-item {
+    color: var(--main-font-color);
+  }
+
+  .md-dialog-actions {
+    background-color: transparent;
+  }
+}
