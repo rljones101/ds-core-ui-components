@@ -1,6 +1,6 @@
 {
   "name": "core-ui-components",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "serve": "cross-env vue-cli-service serve",
@@ -14,7 +14,8 @@
     "vue": "^2.6.11",
     "vue-code-highlight": "^0.7.8",
     "vue-ctk-date-time-picker": "^2.5.0",
-    "vue-material": "*"
+    "vue-material": "*",
+    "vue-router": "^3.5.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

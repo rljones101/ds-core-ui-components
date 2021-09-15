@@ -1,0 +1,108 @@
+<template>
+<div class="api-details">
+  <h4>API - {{ title }}</h4>
+  <ds-tabs :tabs="['Props', 'Events']" @onSelectedTab="selectedTab" />
+  <div>
+    <div class="props" v-show="activeTab === 'Props'">
+      <div class="props-row props-header">
+        <span class="props-name">Name</span>
+        <span class="props-description">Description</span>
+        <span class="props-default">Default</span>
+      </div>
+      <div class="props-row" v-for="(cProp, i) in cProps" :key="i">
+        <span class="props-name">{{ cProp.name }}<small class="props-type">{{ cProp.type }}</small></span>
+        <span class="props-description">{{ cProp.description }}</span>
+        <span class="props-default"><code>{{ cProp.default }}</code></span>
+      </div>
+    </div>
+    <div class="props" v-show="activeTab === 'Events'">
+      <div class="props-row props-header">
+        <span class="props-name">Name</span>
+        <span class="props-description">Description</span>
+        <span class="props-default">Value</span>
+      </div>
+      <div class="props-row" v-for="(cEvent, i) in cEvents" :key="i">
+        <span class="props-name">{{ cEvent.name }}</span>
+        <span class="props-description">{{ cEvent.description }}</span>
+        <span class="props-description"><code>{{ cEvent.value }}</code></span>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
+
+<script>
+import DsTabs from '@/components/controls/ds-tabs/DsTabs'
+export default {
+  name: 'ApiDetails',
+  components: { DsTabs },
+  props: {
+    title: {
+      type: String,
+      default: ''
+    },
+    cProps: {
+      type: Array,
+      default() {
+        return [
+            {
+              name: 'label',
+              type: 'String',
+              description: 'Adds a label',
+              default: 'null'
+            }
+          ]
+      }
+    },
+    cEvents: {
+      type: Array,
+      default() {
+        return []
+      }
+    }
+  },
+  data () {
+    return {
+      activeTab: 'Props'
+    }
+  },
+  methods: {
+    selectedTab(tab) {
+      this.activeTab = tab
+    }
+  }
+}
+</script>
+
+<style scoped lang="scss">
+h4 {
+  padding: 1rem 2rem;
+}
+
+.props {
+  display: grid;
+  grid-auto-rows: auto auto auto auto;
+  border: 2px solid var(--main-color);
+  gap: 1rem;
+
+  code {
+    color: #ff5252;
+  }
+}
+
+.props-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.props-row.props-header {
+  background-color: var(--main-color);
+  font-weight: bold;
+}
+.props-type {
+  font-family: sans-serif;
+  display: block;
+}
+</style>

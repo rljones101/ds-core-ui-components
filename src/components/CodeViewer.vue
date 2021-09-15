@@ -5,11 +5,7 @@
     <div><md-button class="md-icon-button md-dense" @click="showCode = !showCode"><md-icon>code</md-icon></md-button> </div>
   </div>
   <div class="code-example" :class="{'show-code': showCode}">
-    <vue-code-highlight language="html">
-      <pre>
-        <code>{{ code }}</code>
-      </pre>
-    </vue-code-highlight>
+    <slot name="code-block"></slot>
   </div>
   <div class="code-viewer-content">
     <slot name="content"></slot>
@@ -18,17 +14,11 @@
 </template>
 
 <script>
-import { component as VueCodeHighlight } from 'vue-code-highlight'
+
 export default {
   name: 'CodeViewer',
   components: {
-    VueCodeHighlight
-  },
-  props: {
-    code: {
-      type: String,
-      default: '<div>add code here...</div>'
-    }
+
   },
   data() {
     return {
@@ -50,7 +40,6 @@ export default {
 }
 
 .code-viewer {
-  margin-top: 1rem;
   background-color: var(--main-color);
 
   .code-viewer-header {

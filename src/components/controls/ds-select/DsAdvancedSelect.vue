@@ -63,12 +63,8 @@
 </template>
 
 <script>
-import { api } from '@/utils/api'
-import { ArrayUtils } from '@/utils/ArrayUtils'
 import DsLoader from '@/components/controls/ds-loader/DsLoader'
-import { StringUtils } from '@/utils/StringUtils'
 import DsSearch from '@/components/controls/DsSearch'
-import { headerKeys } from '@/constants/headerKeys'
 export default {
   name: 'DsAdvancedSelect',
   components: { DsSearch, DsLoader },
@@ -95,27 +91,28 @@ export default {
       type: String,
       default: null
     },
-    scrollOptions: {
-      type: Object,
-      default: () => ({
-        path: null,
-        take: 20,
-        sortBy: 'name',
-        sortDirection: 'asc',
-        mapFn: () => {}
-      })
-    },
     disabled: {
       type: Boolean,
       infiniteScroll: true
+    },
+    options: {
+      type: Array,
+      required: true,
+      default () {
+        return []
+      }
+    },
+    totalResults: {
+      type: Number,
+      required: true,
+      default: 0
     }
   },
   data () {
     return {
-      options: [],
+      loadedOptions: [],
       currentPage: 0,
       totalPages: 0,
-      totalResults: 0,
       take: 100,
       showList: false,
       loading: false,
@@ -144,10 +141,10 @@ export default {
       return this.selectedOption && this.selectedOption.name
     },
     menuRefName () {
-      return 'select-list-' + name + '-' + StringUtils.uuidv4()
+      return 'select-list-' + name + '-' + (Math.random() * 10020909109)
     },
     filtered () {
-      return this.options.filter(option => option.name.toLowerCase().includes(this.searchValue.toLowerCase()))
+      return this.loadedOptions.filter(option => option.name.toLowerCase().includes(this.searchValue.toLowerCase()))
     },
     allOptions () {
       return this.filtered
@@ -156,15 +153,18 @@ export default {
       return this.filtered.length < this.totalResults && this.searchValue === ''
     }
   },
-  async mounted () {
-    if (this.scrollOptions.take) {
-      this.take = this.scrollOptions.take
+  watch: {
+    options(opts) {
+      if (opts) {
+        this.loadedOptions = [ ...this.loadedOptions, ...opts ]
+        this.loading = false
+      }
     }
-    // Load options data...
-    await this.loadMore()
+  },
+  async mounted () {
     // If there is no option selected, then select the first one in the list
-    if (this.options.length && !this.selectedOption) {
-      this.selectedOption = this.options[0]
+    if (this.loadedOptions.length && !this.selectedOption) {
+      this.selectedOption = this.loadedOptions[0]
     }
   },
   methods: {
@@ -176,15 +176,17 @@ export default {
       let foundOption = null
       // If passed in value is the string value of the selected id...
       if (this.selected && (typeof this.selected === 'string')) {
-        foundOption = this.options.find((option) => {
+        foundOption = this.loadedOptions.find((option) => {
           return option.id === this.selected
         })
 
         // If the selected value is an object...
       } else if (typeof this.selected === 'object' && this.selected && this.selected.id !== null) {
-        foundOption = this.options.find((option) => {
+        foundOption = this.loadedOptions.find((option) => {
           return option.id === this.selected.id
         })
+      } else {
+        return this.loadedOptions[0]
       }
 
       // Add the 'id' key to the data object
@@ -211,67 +213,15 @@ export default {
     getValue (item) {
       return this.valueBy && item[this.valueBy] ? item[this.valueBy] : item
     },
-    async loadMore () {
-      if (this.scrollOptions && this.scrollOptions.path) {
-        if ((this.totalResults === 0 || (this.options.length < this.totalResults)) && !this.loading) {
-          this.loading = true
-          // Get the response
-          const responseData = await this.getResponseData()
-          // Set the totalPages value
-          this.totalPages = Math.ceil(Number(this.totalResults) / Number(this.take))
-          // If the currentPage is less than the totalPages add more options
-          if (this.currentPage < this.totalPages) {
-            const opts = this.mapData(responseData)
-            this.options = this.currentPage === 0 ? opts : this.options.concat(opts)
-            // remove duplicate items
-            this.options = ArrayUtils.toUniqueArray(this.options)
-            this.currentPage++
-          }
-          this.loading = false
-          return true
-        }
-        // Done
-      }
-      return false
-    },
-    async getResponseData () {
-      let params = '?'
-      if (this.searchValue !== '') {
-        const searchParamField = this.searchField ? this.searchField : 'name'
-        params += `${searchParamField}=${this.searchValue}`
-      }
-
-      params += this.take ? `&take=${this.take}` : ''
-      params += this.scrollOptions.sort ? `&sortBy=${this.scrollOptions.sortBy}` : ''
-      params += this.scrollOptions.sortDirection ? `&sortDirection=${this.scrollOptions.sortDirection.toUpperCase()}` : ''
-
-      if (this.take) {
-        params += `&skip=${this.currentPage * this.take}`
-      }
-
-      params = params !== '?' ? params : ''
-      const response = await api.get(this.scrollOptions.path + params)
-      if (response.headers) {
-        this.totalResults = response.headers[headerKeys.PAGINATION_COUNT] || 0
-      }
-      return response.data
-    },
     onSearchCancelled () {
       this.searchValue = ''
     },
-    mapData (responseData) {
-      if (typeof this.scrollOptions.mapFn === 'function') {
-        return responseData.map(item => this.scrollOptions.mapFn(item))
-      }
-
-      return responseData.map(item => ({
-        id: item._id || item.id,
-        name: item.name
-      }))
-    },
     async infiniteScroll ([{ isIntersecting }]) {
       if (isIntersecting) {
-        await this.loadMore()
+        if (this.loadedOptions.length < this.totalResults) {
+          this.loading = true
+          this.$emit('loadMore')
+        }
       }
     }
   }
@@ -292,6 +242,14 @@ export default {
 
       .ds-loader-container {
         position: absolute;
+      }
+
+      .selected-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 1rem;
       }
 
       .selected-item span {

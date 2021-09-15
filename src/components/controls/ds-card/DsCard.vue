@@ -37,11 +37,6 @@
 <script>
 export default {
   name: 'DsCard',
-  computed: {
-    isLoading () {
-      return this.$store.getters.isLoading
-    }
-  }
 }
 </script>
 

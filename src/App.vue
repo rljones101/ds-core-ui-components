@@ -1,19 +1,63 @@
 <template>
   <div id="app">
-    <ComponentsList />
+    <div class="header">
+      <h1>Ds Core UI Components</h1>
+      <small>theme: soft-ui-theme</small>
+    </div>
+    <div class="content">
+      <div class="nav">
+        <router-link to="/">Home</router-link>
+        <router-link to="/ds-button">DsButton</router-link>
+        <router-link to="/ds-card">DsCard</router-link>
+        <router-link to="/ds-advanced-select">DsAdvancedSelect</router-link>
+      </div>
+      <router-view></router-view>
+    </div>
+    <div class="footer">
+
+    </div>
   </div>
 </template>
 
 <script>
-import ComponentsList from '@/components/ComponentsList'
+
 export default {
   name: 'App',
   components: {
-    ComponentsList
+
+  },
+  beforeMount () {
+    document.documentElement.classList.add('soft-ui-theme')
   }
 }
 </script>
 
 <style lang="scss">
 @use "styles/app-theme";
+@use "styles/soft-ui-theme";
+#app {
+
+  .header {
+    padding: 2rem;
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding: 2rem;
+  }
+
+  .content .nav {
+    display: flex;
+    flex-direction: column;
+    padding-right: 2rem;
+    > * {
+      padding: 5px 0;
+    }
+  }
+}
 </style>
