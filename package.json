@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "cross-env vue-cli-service serve",
-    "build": "cross-env npm run build-vue-components",
+    "build": "vue-cli-service build",
     "build-vue-components": "cross-env vue-cli-service build --target lib --dest 'dist/vueComponents' --name core-ui './src/index.js'",
     "lint:fix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "lint": "cross-env vue-cli-service lint"
