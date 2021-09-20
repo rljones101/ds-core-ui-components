@@ -33,10 +33,8 @@
       </div>
 
     </template>
-    <template #code-block>
-      <vue-code-highlight language="html">
+    <template #html-code-block>
       <pre>
-        <code>
         &lt;ds-card>
           &lt;template #header>
             Card Title Here
@@ -62,9 +60,7 @@
             &lt;ds-button>Action 2&lt;/ds-button>
           &lt;/template>
         &lt;/ds-card>
-        </code>
       </pre>
-      </vue-code-highlight>
     </template>
   </code-viewer>
 </template>
@@ -73,13 +69,11 @@
 import CodeViewer from '@/components/CodeViewer'
 import DsCard from '@/components/controls/ds-card/DsCard'
 import DsButton from '@/components/controls/ds-button/DsButton'
-import { component as VueCodeHighlight } from 'vue-code-highlight'
 export default {
   components: {
     CodeViewer,
     DsCard,
-    DsButton,
-    VueCodeHighlight
+    DsButton
   },
   name: 'CardCode'
 }

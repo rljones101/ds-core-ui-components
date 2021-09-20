@@ -30,10 +30,8 @@
         <ds-button class="md-dense md-raised md-primary">Raised</ds-button>
       </div>
     </template>
-    <template #code-block>
-      <vue-code-highlight language="html">
+    <template #html-code-block>
       <pre>
-        <code>
           &lt;div&gt;
             &lt;small>Flat&lt;/small>
             &lt;ds-button>Default&lt;/ds-button>
@@ -55,9 +53,7 @@
             &lt;ds-button class="md-dense md-primary">Flat&lt;/ds-button>
             &lt;ds-button class="md-dense md-raised md-primary">Raised&lt;/ds-button>
           &lt;/div>
-        </code>
       </pre>
-      </vue-code-highlight>
     </template>
   </code-viewer>
 
@@ -67,12 +63,10 @@
 <script>
 import CodeViewer from '@/components/CodeViewer'
 import DsButton from '@/components/controls/ds-button/DsButton'
-import { component as VueCodeHighlight } from 'vue-code-highlight'
 export default {
   components: {
     DsButton,
     CodeViewer,
-    VueCodeHighlight
   },
   name: 'ButtonCode',
   data () {

@@ -14,7 +14,6 @@
       <router-view></router-view>
     </div>
     <div class="footer">
-
     </div>
   </div>
 </template>
@@ -36,6 +35,10 @@ export default {
 @use "styles/app-theme";
 @use "styles/soft-ui-theme";
 #app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+
 
   .header {
     padding: 2rem;

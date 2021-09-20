@@ -5,7 +5,30 @@
     <div><md-button class="md-icon-button md-dense" @click="showCode = !showCode"><md-icon>code</md-icon></md-button> </div>
   </div>
   <div class="code-example" :class="{'show-code': showCode}">
-    <slot name="code-block"></slot>
+    <div>
+      <ds-button
+          v-if="$slots['html-code-block']"
+          @click="toggleCodeView">
+        HTML
+      </ds-button>
+      <ds-button
+          v-if="$slots['javascript-code-block']"
+          @click="toggleCodeView">
+        Javascript
+      </ds-button>
+    </div>
+    <div class="code-content">
+      <div v-show="showHtml">
+        <vue-code-highlight language="html" v-if="hasHtmlCode">
+          <slot name="html-code-block"></slot>
+        </vue-code-highlight>
+      </div>
+      <div v-show="showJavascript">
+        <vue-code-highlight language="javascript" v-if="hasJavaScriptCode">
+          <slot name="javascript-code-block"></slot>
+        </vue-code-highlight>
+      </div>
+    </div>
   </div>
   <div class="code-viewer-content">
     <slot name="content"></slot>
@@ -14,15 +37,44 @@
 </template>
 
 <script>
-
+import { component as VueCodeHighlight } from 'vue-code-highlight'
+import DsButton from '@/components/controls/ds-button/DsButton'
 export default {
   name: 'CodeViewer',
   components: {
-
+    VueCodeHighlight,
+    DsButton
   },
   data() {
     return {
-      showCode: false
+      showCode: false,
+      showHtml: false,
+      showJavascript: false
+    }
+  },
+  computed: {
+    hasHtmlCode() {
+      return !!this.$slots['html-code-block']
+    },
+    hasJavaScriptCode() {
+      return !!this.$slots['javascript-code-block']
+    }
+  },
+  mounted () {
+    if (this.hasHtmlCode) {
+      this.showHtml = true
+    }
+
+    if (!this.hasHtmlCode && this.hasJavaScriptCode) {
+      this.showJavascript = true
+    }
+  },
+  methods: {
+    toggleCodeView() {
+      if (this.hasHtmlCode && this.hasJavaScriptCode) {
+        this.showHtml = !this.showHtml
+        this.showJavascript = !this.showJavascript
+      }
     }
   }
 }
@@ -53,8 +105,6 @@ export default {
 
   .code-example {
     display: none;
-    max-height: 450px;
-    overflow: auto;
     opacity: 0;
     width: 100%;
     height: 100%;
@@ -64,6 +114,11 @@ export default {
     &.show-code {
       display: block;
       opacity: 1;
+    }
+
+    .code-content {
+      max-height: 450px;
+      overflow: auto;
     }
   }
   .code-viewer-content {

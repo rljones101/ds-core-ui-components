@@ -12,22 +12,18 @@
             :total-results="totalResults"
             @loadMore="getUsers" />
       </template>
-      <template #code-block>
-        <vue-code-highlight language="html">
-      <pre>
-        <code>
-        &lt;ds-advanced-select
-            label="users"
-            v-model="selected"
-            :options="options"
-            :total-results="totalResults"
-            @loadMore="getUsers" /&gt;
-        </code>
-      </pre>
-        </vue-code-highlight>
-        <vue-code-highlight language="javascript">
-      <pre>
-        <code>
+      <template #html-code-block>
+        <pre>
+          &lt;ds-advanced-select
+              label="users"
+              v-model="selected"
+              :options="options"
+              :total-results="totalResults"
+              @loadMore="getUsers" /&gt;
+        </pre>
+      </template>
+      <template #javascript-code-block>
+        <pre>
           import DsAdvancedSelect from '@/components/controls/ds-select/DsAdvancedSelect'
           export default () {
             name: 'UsersComponent',
@@ -60,9 +56,7 @@
               }
             }
           }
-        </code>
-      </pre>
-        </vue-code-highlight>
+        </pre>
       </template>
     </code-viewer>
   </div>
@@ -71,13 +65,13 @@
 <script>
 import CodeViewer from '@/components/CodeViewer'
 import DsAdvancedSelect from '@/components/controls/ds-select/DsAdvancedSelect'
-import { component as VueCodeHighlight } from 'vue-code-highlight'
+// import { component as VueCodeHighlight } from 'vue-code-highlight'
 export default {
   name: 'AdvancedSelectCode',
   components: {
     CodeViewer,
     DsAdvancedSelect,
-    VueCodeHighlight
+    // VueCodeHighlight
   },
   data() {
     return {
@@ -90,6 +84,9 @@ export default {
   },
   async created () {
     await this.getUsers()
+  },
+  mounted () {
+
   },
   methods: {
     async getUsers() {
