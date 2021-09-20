@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import ButtonCode from '@/components/ButtonCode'
+import ButtonCode from '@/components/codeblocks/ButtonCode'
 import ApiDetails from '@/components/ApiDetails'
 export default {
   name: 'DsButtonPage',

@@ -10,6 +10,7 @@
         <router-link to="/ds-button">DsButton</router-link>
         <router-link to="/ds-card">DsCard</router-link>
         <router-link to="/ds-advanced-select">DsAdvancedSelect</router-link>
+        <router-link to="/ds-pagination">DsPagination</router-link>
       </div>
       <router-view></router-view>
     </div>

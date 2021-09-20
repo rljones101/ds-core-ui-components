@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import AdvancedSelectCode from '@/components/AdvancedSelectCode'
+import AdvancedSelectCode from '@/components/codeblocks/AdvancedSelectCode'
 import ApiDetails from '@/components/ApiDetails'
 export default {
   name: 'DsAdvancedSelectPage',

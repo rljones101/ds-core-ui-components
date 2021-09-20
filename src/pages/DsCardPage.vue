@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import CardCode from '@/components/CardCode'
+import CardCode from '@/components/codeblocks/CardCode'
 export default {
   name: 'DsCardPage',
   components: {CardCode}

@@ -4,6 +4,7 @@ import DsButtonPage from '@/pages/DsButtonPage'
 import DsAdvancedSelectPage from '@/pages/DsAdvancedSelectPage'
 import DsCardPage from '@/pages/DsCardPage'
 import HomePage from '@/pages/HomePage'
+import DsPaginationPage from '@/pages/DsPaginationPage'
 Vue.use(Router)
 
 const routes = [
@@ -26,6 +27,11 @@ const routes = [
     path: '/ds-advanced-select',
     name: 'DsAdvancedSelect',
     component: DsAdvancedSelectPage
+  },
+  {
+    path: '/ds-pagination',
+    name: 'DsPagination',
+    component: DsPaginationPage
   }
 ]
 
