@@ -5,13 +5,7 @@
       <small>theme: soft-ui-theme</small>
     </div>
     <div class="content">
-      <div class="nav">
-        <router-link to="/">Home</router-link>
-        <router-link to="/ds-button">DsButton</router-link>
-        <router-link to="/ds-card">DsCard</router-link>
-        <router-link to="/ds-advanced-select">DsAdvancedSelect</router-link>
-        <router-link to="/ds-pagination">DsPagination</router-link>
-      </div>
+      <side-nav />
       <router-view></router-view>
     </div>
     <div class="footer">
@@ -21,10 +15,11 @@
 
 <script>
 
+import SideNav from '@/components/SideNav'
 export default {
   name: 'App',
   components: {
-
+    SideNav
   },
   beforeMount () {
     document.documentElement.classList.add('soft-ui-theme')

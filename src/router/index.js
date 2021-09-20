@@ -5,6 +5,7 @@ import DsAdvancedSelectPage from '@/pages/DsAdvancedSelectPage'
 import DsCardPage from '@/pages/DsCardPage'
 import HomePage from '@/pages/HomePage'
 import DsPaginationPage from '@/pages/DsPaginationPage'
+import DsBreadcrumbsPage from '@/pages/DsBreadcrumbsPage'
 Vue.use(Router)
 
 const routes = [
@@ -32,6 +33,11 @@ const routes = [
     path: '/ds-pagination',
     name: 'DsPagination',
     component: DsPaginationPage
+  },
+  {
+    path: '/ds-breadcrumbs',
+    name: 'DsBreadcrumbs',
+    component: DsBreadcrumbsPage
   }
 ]
 

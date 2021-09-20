@@ -23,7 +23,7 @@
 <script>
 import DsButton from '@/components/controls/ds-button/DsButton'
 export default {
-  name: 'DsBreadcrumb',
+  name: 'DsBreadcrumbs',
   components: {
     DsButton
   },
@@ -42,6 +42,13 @@ export default {
       }
     }
   },
+  created () {
+    console.log('route:', this.$route)
+
+    let pathArray = this.$route.path.split('/')
+    pathArray.shift()
+    console.log('path array:', pathArray)
+  },
   methods: {
     isLast (index) {
       return index === this.crumbs.length - 1
@@ -56,7 +63,7 @@ export default {
 <style lang="scss">
 
 .breadcrumb {
-  --disabled-color: rgba(255,255,255, 0.5);
+  --disabled-color: rgba(0,0,0, 0.26);
 
   display: flex;
   align-items: center;

@@ -16,7 +16,7 @@ export default {
   },
   data() {
     return {
-      cPropTitle: 'DsPagination',
+      cPropTitle: 'ds-pagination',
       cProps: [
         {
           name: 'totalResults',
