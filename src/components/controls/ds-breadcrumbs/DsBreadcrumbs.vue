@@ -42,13 +42,6 @@ export default {
       }
     }
   },
-  created () {
-    console.log('route:', this.$route)
-
-    let pathArray = this.$route.path.split('/')
-    pathArray.shift()
-    console.log('path array:', pathArray)
-  },
   methods: {
     isLast (index) {
       return index === this.crumbs.length - 1
