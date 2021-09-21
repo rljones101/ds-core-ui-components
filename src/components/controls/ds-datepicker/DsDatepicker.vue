@@ -1,27 +1,38 @@
 <template>
   <div
-    id="DsDatePicker"
+    class="ds-date-picker"
   >
-    <ds-menu-dropdown
-      :label="label"
-      :selected-item="dateValue"
-    >
-      <template #menu-content>
-        <VueCtkDateTimePicker
+    <div v-if="inline">
+      <VueCtkDateTimePicker
           :id="_uid"
           v-model="dateValue"
           :format="dateFormat"
           input-size="sm"
           :no-label="true"
           :inline="true"
-        />
-      </template>
-    </ds-menu-dropdown>
+      />
+    </div>
+    <div v-else>
+      <ds-menu-dropdown
+          :label="label"
+          :selected-item="dateValue"
+      >
+        <template #menu-content>
+          <VueCtkDateTimePicker
+              :id="_uid"
+              v-model="dateValue"
+              :format="dateFormat"
+              input-size="sm"
+              :no-label="true"
+              :inline="true"
+          />
+        </template>
+      </ds-menu-dropdown>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import DsMenuDropdown from '@/components/controls/ds-menu-dropdown/DsMenuDropdown'
 
 export default {
@@ -34,14 +45,21 @@ export default {
   props: {
     label: {
       type: String,
+      required: true,
       default: ''
+    },
+    inline: {
+      type: Boolean,
+      default: false
     },
     value: {
       type: [Date, String],
       default: ''
     },
-    disabled: Boolean,
-    isInvalid: Boolean
+    dateFormat: {
+      type: String,
+      default: 'MM-DD-YYYY hh:mm a'
+    }
   },
   data () {
     return {
@@ -49,23 +67,30 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      appTheme: 'appTheme'
-    }),
     inputName () {
       if (this.label === undefined) {
         throw new Error('Label is undefined')
       }
       return 'ds-' + this.label.split(' ').join('-')
     },
-    dateFormat () {
-      return 'MM-DD-YYYY hh:mm a'
-    },
     dateValue: {
       get () {
         let dts = this.value
         if (this.value instanceof Date) {
-          dts = this.value.toDateString()
+          // MUST format the date value and return it
+
+          // Month
+          let month = (1 + this.value.getMonth()).toString()
+          month = month.length > 1 ? month : '0' + month
+
+          // Day
+          let day = this.value.getDate().toString()
+          day = day.length > 1 ? day : '0' + day
+
+          // Year
+          const year = this.value.getFullYear()
+
+          dts = `${month}-${day}-${year} ${this.value.toLocaleTimeString()}`
         }
         return dts
       },
@@ -73,17 +98,13 @@ export default {
         this.$emit('input', val)
       }
     }
-  },
-  methods: {
-    onDialogOpen () {},
-    onDialogClose () {}
   }
 }
 </script>
 
 <style lang="scss">
 @use "../../../styles/mixins";
-  #DsDatePicker {
+  .ds-date-picker {
     display: flex;
     flex-direction: column;
 
@@ -112,10 +133,11 @@ export default {
     }
 
     input.field-input {
+      @include mixins.box-inset-soft-shadow;
       min-width: 320px;
       width: 100%;
-      padding: 0 8px;
-      border: solid 1px var(--card-and-table-text-colors) !important;
+      padding: var(--app-border-radius);
+      border: none !important;
       background-color: var(--main-view-bg-color);
       color: var(--button-color);
       font-size: 1em;

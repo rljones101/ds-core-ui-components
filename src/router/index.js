@@ -6,6 +6,7 @@ import DsCardPage from '@/pages/DsCardPage'
 import HomePage from '@/pages/HomePage'
 import DsPaginationPage from '@/pages/DsPaginationPage'
 import DsBreadcrumbsPage from '@/pages/DsBreadcrumbsPage'
+import DsDatepickerPage from '@/pages/DsDatepickerPage'
 Vue.use(Router)
 
 const routes = [
@@ -38,6 +39,11 @@ const routes = [
     path: '/ds-breadcrumbs',
     name: 'DsBreadcrumbs',
     component: DsBreadcrumbsPage
+  },
+  {
+    path: '/ds-datepicker',
+    name: 'DsDatepicker',
+    component: DsDatepickerPage
   }
 ]
 

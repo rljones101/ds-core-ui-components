@@ -71,15 +71,14 @@ a {
 html, body {
   padding: 0;
   margin: 0;
+}
+body {
   display: flex;
   flex-direction: column;
   font-size: variables.$default-font-size !important;
   *:focus {
     outline: none;
   }
-
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#4069ff+0,06ed94+100 */
-  background-color: var(--main-view-bg-color); /* Old browsers */
 }
 .modified-date {
   font-size: variables.$default-font-size;

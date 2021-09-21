@@ -1,18 +1,6 @@
 @use "variables";
 @use "mixins";
 
-//$md-theme-name: null;
-//$md-themes: null;
-//
-//$buttonColor: #48A8FF;
-//
-//@import '~vue-material/dist/theme/engine'; //VueMaterial theme engine
-//@include md-register-theme('default', (
-//        primary: $buttonColor,
-//        accent: #ff00ff
-//));
-//@import '~vue-material/dist/theme/all'; // Apply the theme
-
 /* Soft UI Theme */
 .soft-ui-theme {
   // Theme colors for application
@@ -42,17 +30,6 @@
   --field-name-color: ececec;
   --field-value-color: var(--main-font-color);
 
-  // Material Colors =====================================================
-  // --md-theme-default-primary: var(--color-link-and-buttons);
-  //--md-theme-default-background: var(--main-color);
-
-  // Accent colors
-  // --md-theme-default-accent: orange;
-
-  // Default colors
-  // --md-theme-default-primary-on-background: var(--color-link-and-buttons);
-  // --md-theme-default-text-primary-on-background: var(--main-font-color);
-
   body {
     color: var(--main-font-color);
   }
@@ -73,6 +50,16 @@
     // DsCard header
     .ds-card-header {
       color: var(--main-font-color) !important;
+    }
+  }
+
+  .ds-date-picker {
+    input.field-input {
+      @include mixins.box-inset-soft-shadow('soft-ui-theme');
+    }
+
+    .header-picker {
+      color: var(--color-link-and-buttons);
     }
   }
 

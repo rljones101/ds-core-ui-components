@@ -8,12 +8,12 @@
     <div>
       <ds-button
           v-if="$slots['html-code-block']"
-          @click="toggleCodeView">
+          @click="showHtmlCode">
         HTML
       </ds-button>
       <ds-button
           v-if="$slots['javascript-code-block']"
-          @click="toggleCodeView">
+          @click="showJavascriptCode">
         Javascript
       </ds-button>
     </div>
@@ -38,6 +38,7 @@
 
 <script>
 import { component as VueCodeHighlight } from 'vue-code-highlight'
+import 'vue-code-highlight/themes/prism-okaidia.css'
 import DsButton from '@/components/controls/ds-button/DsButton'
 export default {
   name: 'CodeViewer',
@@ -70,10 +71,16 @@ export default {
     }
   },
   methods: {
-    toggleCodeView() {
-      if (this.hasHtmlCode && this.hasJavaScriptCode) {
-        this.showHtml = !this.showHtml
-        this.showJavascript = !this.showJavascript
+    showHtmlCode() {
+      if (this.hasHtmlCode) {
+        this.showHtml = true
+        this.showJavascript = false
+      }
+    },
+    showJavascriptCode() {
+      if (this.hasJavaScriptCode) {
+        this.showJavascript = true
+        this.showHtml = false
       }
     }
   }
@@ -93,6 +100,7 @@ export default {
 
 .code-viewer {
   background-color: var(--main-color);
+  width: 100%;
 
   .code-viewer-header {
     display: flex;
@@ -118,6 +126,7 @@ export default {
 
     .code-content {
       max-height: 450px;
+      max-width: 800px;
       overflow: auto;
     }
   }
