@@ -7,6 +7,7 @@ import HomePage from '@/pages/HomePage'
 import DsPaginationPage from '@/pages/DsPaginationPage'
 import DsBreadcrumbsPage from '@/pages/DsBreadcrumbsPage'
 import DsDatepickerPage from '@/pages/DsDatepickerPage'
+import DsGridPage from '@/pages/DsGridPage'
 Vue.use(Router)
 
 const routes = [
@@ -44,6 +45,11 @@ const routes = [
     path: '/ds-datepicker',
     name: 'DsDatepicker',
     component: DsDatepickerPage
+  },
+  {
+    path: '/ds-grid',
+    name: 'DsGrid',
+    component: DsGridPage
   }
 ]
 

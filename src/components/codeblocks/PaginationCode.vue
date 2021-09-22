@@ -4,10 +4,13 @@
       DsPagination
     </template>
     <template #content>
-      <p>
-
-      </p>
-      <ds-pagination :page-size="20" :total-results="100" v-model="page" @change="onChange" />
+      <p />
+      <ds-pagination
+        v-model="page"
+        :page-size="20"
+        :total-results="100"
+        @change="onChange"
+      />
       <pre>page: {{ page }}</pre>
       <pre>change event: {{ pageChangeResults }}</pre>
     </template>

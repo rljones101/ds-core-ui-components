@@ -31,7 +31,6 @@
           </template>
         </ds-card>
       </div>
-
     </template>
     <template #html-code-block>
       <pre>
@@ -70,12 +69,12 @@ import CodeViewer from '@/components/CodeViewer'
 import DsCard from '@/components/controls/ds-card/DsCard'
 import DsButton from '@/components/controls/ds-button/DsButton'
 export default {
+  name: 'CardCode',
   components: {
     CodeViewer,
     DsCard,
     DsButton
-  },
-  name: 'CardCode'
+  }
 }
 </script>
 

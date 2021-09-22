@@ -5,31 +5,31 @@
       <span class="paging-number">{{ firstRow }}</span> to <span class="paging-number">{{ lastRow }}</span> of <span class="paging-number">{{ totalResults }}</span>
     </div>
     <ds-button
-        class="nav-btn"
-        :disabled="currentPage === 1"
-        @click="goToFirstPage"
+      class="nav-btn"
+      :disabled="currentPage === 1"
+      @click="goToFirstPage"
     >
       <span class="material-icons">first_page</span>
     </ds-button>
     <ds-button
-        class="nav-btn"
-        :disabled="currentPage === 1"
-        @click="goToPrevPage"
+      class="nav-btn"
+      :disabled="currentPage === 1"
+      @click="goToPrevPage"
     >
       <span class="material-icons">navigate_before</span>
     </ds-button>
     <div>Page <span class="paging-number">{{ currentPage }}</span> of <span class="paging-number">{{ totalPages }}</span></div>
     <ds-button
-        class="nav-btn"
-        :disabled="(currentPage) === totalPages"
-        @click="goToNextPage"
+      class="nav-btn"
+      :disabled="(currentPage) === totalPages"
+      @click="goToNextPage"
     >
       <span class="material-icons">navigate_next</span>
     </ds-button>
     <ds-button
-        class="nav-btn"
-        :disabled="currentPage === totalPages"
-        @click="goToLastPage"
+      class="nav-btn"
+      :disabled="currentPage === totalPages"
+      @click="goToLastPage"
     >
       <span class="material-icons">last_page</span>
     </ds-button>

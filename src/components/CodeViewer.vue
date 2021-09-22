@@ -1,39 +1,57 @@
 <template>
-<div class="code-viewer">
-  <div class="code-viewer-header">
-    <slot name="header"></slot>
-    <div><md-button class="md-icon-button md-dense" @click="showCode = !showCode"><md-icon>code</md-icon></md-button> </div>
-  </div>
-  <div class="code-example" :class="{'show-code': showCode}">
-    <div>
-      <ds-button
+  <div class="code-viewer">
+    <div class="code-viewer-header">
+      <slot name="header" />
+      <div>
+        <md-button
+          class="md-icon-button md-dense"
+          @click="showCode = !showCode"
+        >
+          <md-icon>code</md-icon>
+        </md-button>
+      </div>
+    </div>
+    <div
+      class="code-example"
+      :class="{'show-code': showCode}"
+    >
+      <div>
+        <ds-button
           v-if="$slots['html-code-block']"
-          @click="showHtmlCode">
-        HTML
-      </ds-button>
-      <ds-button
+          @click="showHtmlCode"
+        >
+          HTML
+        </ds-button>
+        <ds-button
           v-if="$slots['javascript-code-block']"
-          @click="showJavascriptCode">
-        Javascript
-      </ds-button>
+          @click="showJavascriptCode"
+        >
+          Javascript
+        </ds-button>
+      </div>
+      <div class="code-content">
+        <div v-show="showHtml">
+          <vue-code-highlight
+            v-if="hasHtmlCode"
+            language="html"
+          >
+            <slot name="html-code-block" />
+          </vue-code-highlight>
+        </div>
+        <div v-show="showJavascript">
+          <vue-code-highlight
+            v-if="hasJavaScriptCode"
+            language="javascript"
+          >
+            <slot name="javascript-code-block" />
+          </vue-code-highlight>
+        </div>
+      </div>
     </div>
-    <div class="code-content">
-      <div v-show="showHtml">
-        <vue-code-highlight language="html" v-if="hasHtmlCode">
-          <slot name="html-code-block"></slot>
-        </vue-code-highlight>
-      </div>
-      <div v-show="showJavascript">
-        <vue-code-highlight language="javascript" v-if="hasJavaScriptCode">
-          <slot name="javascript-code-block"></slot>
-        </vue-code-highlight>
-      </div>
+    <div class="code-viewer-content">
+      <slot name="content" />
     </div>
   </div>
-  <div class="code-viewer-content">
-    <slot name="content"></slot>
-  </div>
-</div>
 </template>
 
 <script>

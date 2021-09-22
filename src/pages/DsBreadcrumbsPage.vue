@@ -1,7 +1,11 @@
 <template>
   <div>
     <BreadcrumbsCode />
-    <api-details :title="cPropTitle" :c-props="cProps" :c-events="cEvents" />
+    <api-details
+      :title="cPropTitle"
+      :c-props="cProps"
+      :c-events="cEvents"
+    />
   </div>
 </template>
 

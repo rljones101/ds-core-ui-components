@@ -1,8 +1,12 @@
 <template>
-<div>
-  <advanced-select-code />
-  <api-details :title="cPropTitle" :c-props="cProps" :c-events="cEvents" />
-</div>
+  <div>
+    <advanced-select-code />
+    <api-details
+      :title="cPropTitle"
+      :c-props="cProps"
+      :c-events="cEvents"
+    />
+  </div>
 </template>
 
 <script>

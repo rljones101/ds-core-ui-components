@@ -1,7 +1,7 @@
 <template>
-<div>
-  <card-code />
-</div>
+  <div>
+    <card-code />
+  </div>
 </template>
 
 <script>

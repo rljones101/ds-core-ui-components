@@ -4,7 +4,10 @@
       DsBreadcrumbs
     </template>
     <template #content>
-      <ds-breadcrumbs :crumbs="crumbs" @selected="onSelected" />
+      <ds-breadcrumbs
+        :crumbs="crumbs"
+        @selected="onSelected"
+      />
       selected: <pre>{{ JSON.stringify(selected) }}</pre>
     </template>
     <template #html-code-block>

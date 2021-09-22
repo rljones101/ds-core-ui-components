@@ -1,34 +1,51 @@
 <template>
-<div class="api-details">
-  <h4>API - {{ title }}</h4>
-  <ds-tabs :tabs="['Props', 'Events']" @onSelectedTab="selectedTab" />
-  <div>
-    <div class="props" v-show="activeTab === 'Props'">
-      <div class="props-row props-header">
-        <span class="props-name">Name</span>
-        <span class="props-description">Description</span>
-        <span class="props-default">Default</span>
+  <div class="api-details">
+    <h4>API - {{ title }}</h4>
+    <ds-tabs
+      :tabs="['Props', 'Events']"
+      @onSelectedTab="selectedTab"
+    />
+    <div>
+      <div
+        v-show="activeTab === 'Props'"
+        class="props"
+      >
+        <div class="props-row props-header">
+          <span class="props-name">Name</span>
+          <span class="props-description">Description</span>
+          <span class="props-default">Default</span>
+        </div>
+        <div
+          v-for="(cProp, i) in cProps"
+          :key="i"
+          class="props-row"
+        >
+          <span class="props-name">{{ cProp.name }}<small class="props-type">{{ cProp.type }}</small></span>
+          <span class="props-description">{{ cProp.description }}</span>
+          <span class="props-default"><code>{{ cProp.default }}</code></span>
+        </div>
       </div>
-      <div class="props-row" v-for="(cProp, i) in cProps" :key="i">
-        <span class="props-name">{{ cProp.name }}<small class="props-type">{{ cProp.type }}</small></span>
-        <span class="props-description">{{ cProp.description }}</span>
-        <span class="props-default"><code>{{ cProp.default }}</code></span>
-      </div>
-    </div>
-    <div class="props" v-show="activeTab === 'Events'">
-      <div class="props-row props-header">
-        <span class="props-name">Name</span>
-        <span class="props-description">Description</span>
-        <span class="props-default">Value</span>
-      </div>
-      <div class="props-row" v-for="(cEvent, i) in cEvents" :key="i">
-        <span class="props-name">{{ cEvent.name }}</span>
-        <span class="props-description">{{ cEvent.description }}</span>
-        <span class="props-description"><code>{{ cEvent.value }}</code></span>
+      <div
+        v-show="activeTab === 'Events'"
+        class="props"
+      >
+        <div class="props-row props-header">
+          <span class="props-name">Name</span>
+          <span class="props-description">Description</span>
+          <span class="props-default">Value</span>
+        </div>
+        <div
+          v-for="(cEvent, i) in cEvents"
+          :key="i"
+          class="props-row"
+        >
+          <span class="props-name">{{ cEvent.name }}</span>
+          <span class="props-description">{{ cEvent.description }}</span>
+          <span class="props-description"><code>{{ cEvent.value }}</code></span>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>

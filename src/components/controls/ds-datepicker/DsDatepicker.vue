@@ -4,27 +4,27 @@
   >
     <div v-if="inline">
       <VueCtkDateTimePicker
-          :id="_uid"
-          v-model="dateValue"
-          :format="dateFormat"
-          input-size="sm"
-          :no-label="true"
-          :inline="true"
+        :id="_uid"
+        v-model="dateValue"
+        :format="dateFormat"
+        input-size="sm"
+        :no-label="true"
+        :inline="true"
       />
     </div>
     <div v-else>
       <ds-menu-dropdown
-          :label="label"
-          :selected-item="dateValue"
+        :label="label"
+        :selected-item="dateValue"
       >
         <template #menu-content>
           <VueCtkDateTimePicker
-              :id="_uid"
-              v-model="dateValue"
-              :format="dateFormat"
-              input-size="sm"
-              :no-label="true"
-              :inline="true"
+            :id="_uid"
+            v-model="dateValue"
+            :format="dateFormat"
+            input-size="sm"
+            :no-label="true"
+            :inline="true"
           />
         </template>
       </ds-menu-dropdown>

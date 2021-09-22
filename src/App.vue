@@ -9,12 +9,11 @@
         <side-nav />
         <div class="page-content">
           <transition name="fade">
-            <router-view></router-view>
+            <router-view />
           </transition>
         </div>
       </div>
-      <div class="footer">
-    </div>
+      <div class="footer" />
     </div>
   </div>
 </template>

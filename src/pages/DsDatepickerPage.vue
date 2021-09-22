@@ -1,8 +1,12 @@
 <template>
-<div>
-  <date-picker-code />
-  <api-details :title="cPropTitle" :c-props="cProps" :c-events="cEvents" />
-</div>
+  <div>
+    <date-picker-code />
+    <api-details
+      :title="cPropTitle"
+      :c-props="cProps"
+      :c-events="cEvents"
+    />
+  </div>
 </template>
 
 <script>

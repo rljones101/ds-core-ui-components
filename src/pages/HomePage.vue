@@ -1,18 +1,18 @@
 <template>
-<div class="home-page">
-  <h2>Introduction</h2>
-  <p>This is documentation that will cover how to use the internal components that are used across different projects.</p>
-  <h3>Installation</h3>
-  <p>How to add the web components to your project</p>
-  <vue-code-highlight language="JavaScript">
-    <pre>
+  <div class="home-page">
+    <h2>Introduction</h2>
+    <p>This is documentation that will cover how to use the internal components that are used across different projects.</p>
+    <h3>Installation</h3>
+    <p>How to add the web components to your project</p>
+    <vue-code-highlight language="JavaScript">
+      <pre>
       <code>
         "core-ui-components": "https://github.com/&lt;user>/core-ui-components.git"
       </code>
     </pre>
-  </vue-code-highlight>
-  <h3>Usage</h3>
-  <p>Add the following import statements:</p>
+    </vue-code-highlight>
+    <h3>Usage</h3>
+    <p>Add the following import statements:</p>
     <vue-code-highlight language="javascript">
       <pre>
         <code>
@@ -24,7 +24,7 @@
         </code>
       </pre>
     </vue-code-highlight>
-</div>
+  </div>
 </template>
 
 <script>

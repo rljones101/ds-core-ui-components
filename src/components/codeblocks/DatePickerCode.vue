@@ -4,14 +4,16 @@
       DsDatepicker
     </template>
     <template #content>
-
       <div class="examples">
         <ds-card>
           <template #header>
             Inline Datepicker
           </template>
           <template #content>
-            <ds-datepicker label="Start date" v-model="startDate" />
+            <ds-datepicker
+              v-model="startDate"
+              label="Start date"
+            />
             <p>start date:</p>
             <p>{{ startDate }}</p>
           </template>
@@ -22,7 +24,11 @@
             Datepicker
           </template>
           <template #content>
-            <ds-datepicker label="End date" :inline="true" v-model="endDate" />
+            <ds-datepicker
+              v-model="endDate"
+              label="End date"
+              :inline="true"
+            />
             <p>end date:</p>
             <p>{{ endDate }}</p>
           </template>

@@ -6,11 +6,12 @@
       </template>
       <template #content>
         <ds-advanced-select
-            label="users"
-            v-model="selected"
-            :options="options"
-            :total-results="totalResults"
-            @loadMore="getUsers" />
+          v-model="selected"
+          label="users"
+          :options="options"
+          :total-results="totalResults"
+          @loadMore="getUsers"
+        />
       </template>
       <template #html-code-block>
         <pre>
