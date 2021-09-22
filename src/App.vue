@@ -8,7 +8,10 @@
       <div class="content">
         <side-nav />
         <div class="page-content">
-          <transition name="fade">
+          <transition
+            name="fade"
+            mode="out-in"
+          >
             <router-view />
           </transition>
         </div>
@@ -72,10 +75,6 @@ export default {
 
   .page-content {
     position: relative;
-  }
-
-  .page-content > div {
-    position: absolute;
   }
 }
 </style>
