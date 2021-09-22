@@ -1,0 +1,104 @@
+@use "variables";
+@use "mixins";
+
+/* Soft UI Theme */
+.light-theme {
+  $themeName: 'soft-ui-theme';
+  // Theme colors for application
+  // This color changes the left nav and cards
+
+  --main-color: white;
+
+  // This color changes the main content background color and input backgrounds
+  --main-view-bg-color: #f0f7ff;
+
+  // This color will change the main body background color
+  --main-secondary-color: #FFFCF9;
+
+  // Button and link styles
+  --button-color: #48A8FF;
+  --link-color: #48A8FF;
+  --color-link-and-buttons: #48A8FF;
+  --accent-color: orange;
+  --disabled-color: #ececec;
+  --button-border-radius: 10px;
+
+  // These two colors change the borders/underlines and font colors
+  --main-third-color: #AFD2E9;
+  --main-font-color: #216db0;
+  --card-and-table-text-colors: #216db0;
+  --main-alt-color: #48A8FF;
+
+  --field-name-color: ececec;
+  --field-value-color: var(--main-font-color);
+
+  // Ag Grid theme =================================
+  .ag-grid.ag-theme-material {
+    // Grid colors
+    --row-font-color: var(--main-font-color);
+    --hover-color: var(--main-view-bg-color);
+
+    font-family: var(--main-font);
+
+    .ag-header {
+      font-family: inherit !important;
+    }
+
+    .ag-row-hover {
+      background-color: var(--main-view-bg-color);
+      color: var(--main-font-color);
+    }
+  }
+}
+
+// Md Dialog theme
+.md-dialog.light-theme {
+  --md-theme-default-primary-on-background: var(--main-font-color);
+
+  .md-dialog-container {
+    border-radius: var(--app-border-radius);
+    padding: 1rem;
+  }
+
+  .md-title {
+    color: var(--main-font-color);
+  }
+
+  .dialog-content {
+    color: var(--main-font-color);
+  }
+
+  .dialog-content .search-input {
+    margin: 1rem 0;
+    @include mixins.box-inset-soft-shadow('soft-ui-theme');
+
+    input, .search-icon {
+      color: var(--main-font-color);
+
+      &::-webkit-input-placeholder {
+        color: var(--main-font-color);
+      }
+
+      &::-ms-input-placeholder {
+        color: var(--main-font-color);
+      }
+
+      &:-ms-input-placeholder {
+        color: var(--main-font-color);
+      }
+    }
+  }
+
+  .dialog-content .select-list {
+    box-shadow: none;
+    @include mixins.box-inset-soft-shadow('soft-ui-theme');
+  }
+
+  .dialog-content .select-list .list-item {
+    color: var(--main-font-color);
+  }
+
+  .md-dialog-actions {
+    background-color: transparent;
+  }
+}

@@ -1,14 +1,7 @@
 @use "variables";
 @use "mixins";
 
-//$buttonColor: #FFD166;
-//
-//@import '~vue-material/dist/theme/engine'; //VueMaterial theme engine
-//@include md-register-theme('default', (
-//        primary: $buttonColor,
-//        accent: #ff00ff
-//));
-//@import '~vue-material/dist/theme/all'; // Apply the theme
+$themeName: 'default';
 
 :root {
   --main-font: 'Barlow', sans-serif;
@@ -76,6 +69,7 @@ body {
   display: flex;
   flex-direction: column;
   font-size: variables.$default-font-size !important;
+  color: var(--main-font-color);
   *:focus {
     outline: none;
   }
@@ -233,6 +227,109 @@ body::-webkit-scrollbar-thumb, .ds-scrollbar::-webkit-scrollbar-thumb, .md-scrol
   > .field-value {
     margin: 0 0 0 1rem !important;
   }
+}
+
+
+.field-name {
+  color: var(--main-font-color);
+}
+
+.field-value {
+  color: var(--field-value-color);
+  font-weight: bold;
+}
+
+// Card and Page layouts =======================
+.ds-card, .page-layout-content {
+  border-radius: var(--app-border-radius);
+
+  // DsCard header
+  .ds-card-header {
+    color: var(--main-font-color) !important;
+  }
+}
+// DsDatePicker styles =========================
+.ds-date-picker {
+  input.field-input {
+    @include mixins.box-inset-soft-shadow($themeName);
+  }
+
+  .header-picker {
+    color: var(--color-link-and-buttons);
+  }
+}
+
+// Pagination grid styles ========================
+.ds-pagination-grid-v2 {
+  box-shadow: none;
+}
+
+// Page title
+.page-title {
+  color: var(--main-font-color);
+}
+
+// Material theme overrides ======================
+.md-button.md-icon-button {
+  @include mixins.box-soft-shadow($themeName);
+  background-color: white;
+}
+
+// App controls ===================================
+
+// DsInputWrapper
+.ds-input-wrapper {
+  width: 100%;
+}
+
+// DsButton
+.ds-button {
+  border-radius: var(--button-border-radius);
+}
+
+// DsSelect
+.ds-select .selected-item, .ds-filter, .ds-input input {
+  @include mixins.box-inset-soft-shadow($themeName);
+  border-radius: var(--app-border-radius);
+  border-bottom: none;
+}
+
+.ds-input input {
+  border-bottom: none;
+}
+
+.ds-search {
+  border-bottom: none;
+  background-color: transparent;
+}
+
+.actions-renderer .md-button {
+  @include mixins.box-soft-shadow($themeName);
+}
+
+.actions-renderer .delete-icon {
+  color: var(--button-color) !important;
+}
+
+// Modal =========================================
+
+// Modal title
+#ds-base-modal {
+  .modal-title {
+    color: var(--main-font-color);
+  }
+}
+
+// Module configuration form
+.configuration-form {
+  label {
+    color: var(--main-font-color);
+  }
+}
+
+.v--modal {
+  background-color: var(--main-color) !important;
+  border-radius: var(--app-border-radius);
 }
 
 // Md Dialog theme

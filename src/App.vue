@@ -28,14 +28,14 @@ export default {
     SideNav
   },
   beforeMount () {
-    document.documentElement.classList.add('soft-ui-theme')
+    document.documentElement.classList.add('light-theme')
   }
 }
 </script>
 
 <style lang="scss">
 @use "styles/app-theme";
-@use "styles/soft-ui-theme";
+@use "styles/light-theme";
 @use "styles/transitions";
 #app {
   background-color: var(--main-view-bg-color);
@@ -69,6 +69,14 @@ export default {
     display: flex;
     flex-direction: column;
     padding-right: 2rem;
+  }
+
+  .page-content {
+    position: relative;
+  }
+
+  .page-content > div {
+    position: absolute;
   }
 }
 </style>

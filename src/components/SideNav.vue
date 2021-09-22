@@ -17,6 +17,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "../styles/mixins";
 .nav {
 
   a {
@@ -34,6 +35,7 @@ export default {
 
 
   a.router-link-exact-active {
+    @include mixins.box-inset-soft-shadow('soft-ui-theme');
     color: var(--accent-color);
     background-color: var(--main-view-bg-color);
     border-radius: var(--app-border-radius);
