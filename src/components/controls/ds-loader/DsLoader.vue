@@ -3,9 +3,14 @@
     class="ds-loader"
   >
     <p class="wait-text">
-      Loading...
+      <slot>
+        Loading...
+      </slot>
     </p>
-    <md-progress-bar md-mode="indeterminate" />
+    <md-progress-bar
+      md-mode="indeterminate"
+      v-bind="$attrs"
+    />
   </div>
 </template>
 
@@ -13,9 +18,7 @@
 
 export default {
   name: 'DsLoader',
-  data () {
-    return {}
-  }
+  inheritAttrs: false
 }
 </script>
 

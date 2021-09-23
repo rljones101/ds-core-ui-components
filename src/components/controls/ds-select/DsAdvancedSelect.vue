@@ -127,7 +127,7 @@ export default {
         if (this.selected && (this.selected._id || this.selected.id)) {
           sel = { id: this.selected._id || this.selected.id, name: this.selected.name }
         } else {
-          // NOTE: This can return a null value. However on the mounted hook if it null, then it will be set to the
+          // NOTE: This can return a null value. However on the created hook if it null, then it will be set to the
           // first option in the options list
           sel = this.findSelectedInOptions()
         }
@@ -155,13 +155,17 @@ export default {
   },
   watch: {
     options(opts) {
-      if (opts) {
-        this.loadedOptions = [ ...this.loadedOptions, ...opts ]
-        this.loading = false
+      if (opts?.length) {
+        // If nothing has been selected then select the first option
+        if (!this.selected) {
+          this.selectedOption = opts[0]
+        }
+        this.updateOptions(opts)
       }
     }
   },
-  async mounted () {
+  created () {
+    this.updateOptions(this.options)
     // If there is no option selected, then select the first one in the list
     if (this.loadedOptions.length && !this.selectedOption) {
       this.selectedOption = this.loadedOptions[0]
@@ -186,7 +190,7 @@ export default {
           return option.id === this.selected.id
         })
       } else {
-        return this.loadedOptions[0]
+        return foundOption
       }
 
       // Add the 'id' key to the data object
@@ -223,6 +227,10 @@ export default {
           this.$emit('loadMore')
         }
       }
+    },
+    updateOptions (opts) {
+      this.loadedOptions = [...this.loadedOptions, ...opts]
+      this.loading = false
     }
   }
 }

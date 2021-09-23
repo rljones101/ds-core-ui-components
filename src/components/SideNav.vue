@@ -24,6 +24,9 @@
     <router-link to="/ds-grid">
       DsGrid
     </router-link>
+    <router-link to="/ds-loader">
+      DsLoader
+    </router-link>
   </div>
 </template>
 

@@ -12,6 +12,7 @@
           :total-results="totalResults"
           @loadMore="getUsers"
         />
+        <p>selected:</p> <pre>{{ selected }}</pre>
       </template>
       <template #html-code-block>
         <pre>
@@ -66,13 +67,11 @@
 <script>
 import CodeViewer from '@/components/CodeViewer'
 import DsAdvancedSelect from '@/components/controls/ds-select/DsAdvancedSelect'
-// import { component as VueCodeHighlight } from 'vue-code-highlight'
 export default {
   name: 'AdvancedSelectCode',
   components: {
     CodeViewer,
-    DsAdvancedSelect,
-    // VueCodeHighlight
+    DsAdvancedSelect
   },
   data() {
     return {
