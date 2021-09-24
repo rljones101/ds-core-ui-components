@@ -9,6 +9,7 @@ import DsBreadcrumbsPage from '@/pages/DsBreadcrumbsPage'
 import DsDatepickerPage from '@/pages/DsDatepickerPage'
 import DsGridPage from '@/pages/DsGridPage'
 import DsLoaderPage from '@/pages/DsLoaderPage'
+import DsInputWrapperPage from '@/pages/DsInputPage'
 Vue.use(Router)
 
 const routes = [
@@ -56,6 +57,11 @@ const routes = [
     path: '/ds-loader',
     name: 'DsLoader',
     component: DsLoaderPage
+  },
+  {
+    path: '/ds-input',
+    name: 'DsInput',
+    component: DsInputWrapperPage
   }
 ]
 

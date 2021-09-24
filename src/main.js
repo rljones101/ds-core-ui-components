@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
 // Vue Material: https://www.creative-tim.com/vuematerial/getting-started
-import { MdButton, MdMenu, MdProgress, MdCheckbox, MdSnackbar, MdIcon } from 'vue-material/dist/components'
+import { MdButton, MdMenu, MdProgress, MdCheckbox, MdSnackbar, MdIcon, MdSwitch } from 'vue-material/dist/components'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 Vue.use(MdButton)
@@ -10,6 +10,7 @@ Vue.use(MdProgress)
 Vue.use(MdCheckbox)
 Vue.use(MdSnackbar)
 Vue.use(MdIcon)
+Vue.use(MdSwitch)
 
 
 // VueCtkDateTimePicker: https://github.com/chronotruck/vue-ctk-date-time-picker

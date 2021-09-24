@@ -30,7 +30,10 @@
         </ds-button>
       </div>
       <div class="code-content">
-        <div v-show="showHtml">
+        <div
+          v-show="showHtml"
+          key="htmlCodeBlock"
+        >
           <vue-code-highlight
             v-if="hasHtmlCode"
             language="html"
@@ -38,7 +41,10 @@
             <slot name="html-code-block" />
           </vue-code-highlight>
         </div>
-        <div v-show="showJavascript">
+        <div
+          v-show="showJavascript"
+          key="javascriptCodeBlock"
+        >
           <vue-code-highlight
             v-if="hasJavaScriptCode"
             language="javascript"
@@ -83,10 +89,6 @@ export default {
     if (this.hasHtmlCode) {
       this.showHtml = true
     }
-
-    if (!this.hasHtmlCode && this.hasJavaScriptCode) {
-      this.showJavascript = true
-    }
   },
   methods: {
     showHtmlCode() {
@@ -119,6 +121,7 @@ export default {
 .code-viewer {
   background-color: var(--main-color);
   width: 100%;
+  border: 2px solid var(--main-view-bg-color);
 
   .code-viewer-header {
     display: flex;

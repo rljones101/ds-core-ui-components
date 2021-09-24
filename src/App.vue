@@ -75,6 +75,22 @@ export default {
 
   .page-content {
     position: relative;
+    background-color: var(--main-color);
+    padding: 1rem;
+
+    h2 {
+      font-size: 21px;
+      margin: 2rem 0;
+    }
+
+    code {
+      padding: 0 4px;
+      display: inline-block;
+      color: #ff5252;
+      background: rgba(0,0,0,.07);
+      border-radius: 2px;
+      line-height: 1.25em;
+    }
   }
 }
 </style>

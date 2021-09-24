@@ -27,6 +27,9 @@
     <router-link to="/ds-loader">
       DsLoader
     </router-link>
+    <router-link to="/ds-input">
+      DsInput & DsTextarea
+    </router-link>
   </div>
 </template>
 

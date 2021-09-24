@@ -1,12 +1,11 @@
 <template>
   <div class="ds-select">
-    <label>{{ label }}</label>
+    <label class="ds-label">{{ label }}</label>
     <div
       class="select-container"
       :class="[{'disabled': disabled}, {'disabled': loading}]"
     >
       <div
-
         ref="selectedItem"
         class="selected-item"
         :class="[{'active': showList}, {'disabled': disabled}]"
@@ -240,13 +239,9 @@ export default {
 @use "../../../styles/variables";
   .ds-select {
 
-    label {
-      margin: 0 0 1rem 0;
-      padding: 0;
-    }
-
     .select-container {
       position: relative;
+      max-height: 36px;
 
       .ds-loader-container {
         position: absolute;
@@ -257,7 +252,9 @@ export default {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 0.75rem 1rem;
+        padding: var(--input-padding, 0 1rem);
+        height: var(--input-height, 36px);
+        line-height: var(--input-height, 36px);
       }
 
       .selected-item span {

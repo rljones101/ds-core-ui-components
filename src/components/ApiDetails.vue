@@ -92,34 +92,42 @@ export default {
 </script>
 
 <style scoped lang="scss">
-h4 {
-  padding: 1rem 2rem;
-}
 
-.props {
-  display: grid;
-  grid-auto-rows: auto auto auto auto;
-  border: 2px solid var(--main-color);
-  gap: 1rem;
+.api-details {
+  border: 2px solid var(--main-view-bg-color);
+  margin-top: 1rem;
 
-  code {
-    color: #ff5252;
+
+  h4 {
+    padding: 1rem 2rem;
+  }
+
+  .props {
+    display: grid;
+    grid-auto-rows: auto auto auto auto;
+    border: 2px solid var(--main-color);
+    gap: 1rem;
+
+    code {
+      color: #ff5252;
+    }
+  }
+
+  .props-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .props-row.props-header {
+    background-color: var(--main-color);
+    font-weight: bold;
+  }
+  .props-type {
+    font-family: sans-serif;
+    display: block;
   }
 }
 
-.props-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.props-row.props-header {
-  background-color: var(--main-color);
-  font-weight: bold;
-}
-.props-type {
-  font-family: sans-serif;
-  display: block;
-}
 </style>

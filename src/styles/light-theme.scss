@@ -32,6 +32,11 @@
   --field-name-color: ececec;
   --field-value-color: var(--main-font-color);
 
+  // Input values
+  --input-padding: 0 1rem;
+  --input-height: 36px;
+  --input-color: #48A8FF;
+
   // Ag Grid theme =================================
   .ag-grid.ag-theme-material {
     // Grid colors

@@ -13,31 +13,61 @@ export default {
 <style lang="scss">
 .ds-input-wrapper {
   position: relative;
+  margin: 0 0 2.5rem;
   display: flex;
   flex-direction: column;
-  padding: 0 1rem;
   flex: 1;
 
-  .ds-input {
-    padding: 0 0 1rem;
-  }
-
-  .ds-select {
-    margin: 0 -20px;
-  }
-
-  .error-message {
-    margin: -30px 5px 0;
-    padding-bottom: 10px;
+  label {
+    display: block;
+    text-transform: uppercase;
     font-weight: bold;
-    font-style: italic;
-    color: var(--input-error-color);
-    align-self: flex-end;
+    margin-bottom: 1rem;
   }
 
-  &.validation-error {
-    input{
-      border-color: var(--input-error-color) !important;
+  input:disabled {
+    color: var(--disabled-color);
+  }
+
+  input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  .ds-helper-text {
+    position: absolute;
+    margin-top: 1rem;
+    top: 90%;
+    font-size: 14px;
+    color: var(--helper-font-color);
+  }
+
+  .ds-error {
+    position: absolute;
+    top: 85%;
+    left: 0;
+    opacity: 0;
+    transition: all 200ms ease-out;
+  }
+
+  &.ds-invalid {
+
+    label {
+      color: var(--input-error-color);
+    }
+
+    input, .ds-select .selected-item, textarea {
+      border: 1px solid var(--input-error-color) !important;
+    }
+
+    .ds-error {
+      display: block;
+      color: var(--input-error-color);
+      top: 90%;
+      opacity: 1;
+    }
+
+    .ds-helper-text {
+      display: none;
     }
 
     #DsDatePicker {
