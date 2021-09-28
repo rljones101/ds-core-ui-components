@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import DsTabs from '@/components/controls/ds-tabs/DsTabs'
+import DsTabs from 'lib/src/lib-components/DsTabs'
 export default {
   name: 'ApiDetails',
   components: { DsTabs },

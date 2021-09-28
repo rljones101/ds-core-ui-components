@@ -71,8 +71,8 @@
 
 <script>
 import CodeViewer from '@/components/CodeViewer'
-import DsDatepicker from '@/components/controls/ds-datepicker/DsDatepicker'
-import DsCard from '@/components/controls/ds-card/DsCard'
+import DsDatepicker from 'lib/src/lib-components/DsDatepicker'
+import DsCard from 'lib/src/lib-components/DsCard'
 
 export default {
   name: 'DatePickerCode',

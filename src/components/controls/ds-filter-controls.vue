@@ -33,9 +33,9 @@
 </template>
 
 <script>
-import DsInput from '@/components/controls/ds-input/DsInput'
-import DsButton from '@/components/controls/ds-button/DsButton'
-import DsSelect from '@/components/controls/ds-select/DsSelect'
+import DsInput from 'lib/src/lib-components/DsInput'
+import DsButton from 'lib/src/lib-components/DsButton'
+import DsSelect from 'lib/src/lib-components/DsSelect'
 export default {
   name: 'DsFilterControls',
   components: { DsSelect, DsInput, DsButton },

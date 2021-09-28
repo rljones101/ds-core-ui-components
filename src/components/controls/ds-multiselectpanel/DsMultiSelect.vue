@@ -41,7 +41,7 @@
 <script>
 import { ArrayUtils } from '@/utils/ArrayUtils'
 import { api } from '@/utils/api'
-import DsLoader from '@/components/controls/ds-loader/DsLoader'
+import DsLoader from 'lib/src/lib-components/DsLoader'
 import DsFilterControls from '@/components/controls/ds-filter-controls'
 import { headerKeys } from '@/constants/headerKeys'
 export default {

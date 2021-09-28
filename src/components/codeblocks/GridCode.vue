@@ -97,7 +97,7 @@ export default {
 
 <script>
 import CodeViewer from '@/components/CodeViewer'
-import DsGrid from '@/components/DsGrid/DsGrid'
+import DsGrid from '@/../../../lib/src/lib-components/DsGrid/DsGrid'
 
 export default {
   name: 'GridCode',

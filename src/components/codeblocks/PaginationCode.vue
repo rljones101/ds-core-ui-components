@@ -35,7 +35,7 @@
 
 <script>
 import CodeViewer from '@/components/CodeViewer'
-import DsPagination from '@/components/controls/ds-pagination/DsPagination'
+import DsPagination from 'lib/src/lib-components/DsPagination'
 export default {
   name: 'PaginationCode',
   components: {

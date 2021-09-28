@@ -66,7 +66,7 @@
 
 <script>
 import CodeViewer from '@/components/CodeViewer'
-import DsAdvancedSelect from '@/components/controls/ds-select/DsAdvancedSelect'
+import DsAdvancedSelect from 'lib/src/lib-components/DsAdvancedSelect'
 export default {
   name: 'AdvancedSelectCode',
   components: {

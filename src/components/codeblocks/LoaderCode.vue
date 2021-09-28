@@ -26,7 +26,7 @@
 
 <script>
 import CodeViewer from '@/components/CodeViewer'
-import DsLoader from '@/components/controls/ds-loader/DsLoader'
+import DsLoader from 'lib/src/lib-components/DsLoader'
 
 export default {
   name: 'BreadcrumbsCode',

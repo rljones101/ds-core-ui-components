@@ -63,7 +63,7 @@
 <script>
 import { component as VueCodeHighlight } from 'vue-code-highlight'
 import 'vue-code-highlight/themes/prism-okaidia.css'
-import DsButton from '@/components/controls/ds-button/DsButton'
+import DsButton from 'lib/src/lib-components/DsButton'
 export default {
   name: 'CodeViewer',
   components: {

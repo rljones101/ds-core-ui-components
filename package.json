@@ -1,11 +1,12 @@
 {
-  "name": "core-ui-components",
-  "version": "0.0.1",
+  "name": "ds-core-ui-components-documentation",
+  "description": "The Digital Seat core UI components documentation",
+  "homepage": "https://github.com/DigitalSeat/ds-core-ui-components#readme",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "serve": "cross-env vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-vue-components": "cross-env vue-cli-service build --target lib --dest 'dist/vueComponents' --name core-ui './src/index.js'",
     "lint:fix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "lint": "cross-env vue-cli-service lint"
   },

@@ -183,9 +183,9 @@ export default {
 
 <script>
 import CodeViewer from '@/components/CodeViewer'
-import DsInputWrapper from '@/components/controls/ds-input-wrapper/ds-input-wrapper'
-import DsInput from '@/components/controls/ds-input/DsInput'
-import DsTextarea from '@/components/controls/ds-textarea/DsTextarea'
+import DsInputWrapper from 'lib/src/lib-components/DsInputWrapper'
+import DsInput from 'lib/src/lib-components/DsInput'
+import DsTextarea from 'lib/src/lib-components/DsTextarea'
 export default {
   name: 'InputWrapperCode',
   components: {

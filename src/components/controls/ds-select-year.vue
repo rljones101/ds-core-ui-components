@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import DsSelect from '@/components/controls/ds-select/DsSelect'
+import DsSelect from 'lib/src/lib-components/DsSelect'
 export default {
   name: 'DsSelectYear',
   components: { DsSelect },
