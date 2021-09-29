@@ -36,8 +36,6 @@ export default {
 </script>
 
 <style lang="scss">
-@use "styles/app-theme";
-@use "styles/light-theme";
 @use "styles/transitions";
 #app {
   background-color: var(--main-view-bg-color);

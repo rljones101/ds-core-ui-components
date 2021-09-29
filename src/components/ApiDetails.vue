@@ -49,10 +49,9 @@
 </template>
 
 <script>
-import DsTabs from 'lib/src/lib-components/DsTabs'
 export default {
   name: 'ApiDetails',
-  components: { DsTabs },
+  components: { },
   props: {
     title: {
       type: String,

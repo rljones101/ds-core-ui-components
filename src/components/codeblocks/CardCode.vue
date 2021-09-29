@@ -66,14 +66,10 @@
 
 <script>
 import CodeViewer from '@/components/CodeViewer'
-import DsCard from 'lib/src/lib-components/DsCard'
-import DsButton from 'lib/src/lib-components/DsButton'
 export default {
   name: 'CardCode',
   components: {
-    CodeViewer,
-    DsCard,
-    DsButton
+    CodeViewer
   }
 }
 </script>

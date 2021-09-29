@@ -92,12 +92,10 @@
 
 <script>
 import CodeViewer from '@/components/CodeViewer'
-import DsButton from 'lib/src/lib-components/DsButton'
 export default {
   name: 'ButtonCode',
   components: {
-    DsButton,
-    CodeViewer,
+    CodeViewer
   },
   data () {
     return {

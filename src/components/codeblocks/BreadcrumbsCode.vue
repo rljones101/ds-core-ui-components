@@ -62,11 +62,9 @@ export default {
 
 <script>
 import CodeViewer from '@/components/CodeViewer'
-import DsBreadcrumbs from 'lib/src/lib-components/DsBreadcrumbs'
 export default {
   name: 'BreadcrumbsCode',
   components: {
-    DsBreadcrumbs,
     CodeViewer
   },
   data() {

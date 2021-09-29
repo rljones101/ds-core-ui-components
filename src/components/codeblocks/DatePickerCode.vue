@@ -71,15 +71,11 @@
 
 <script>
 import CodeViewer from '@/components/CodeViewer'
-import DsDatepicker from 'lib/src/lib-components/DsDatepicker'
-import DsCard from 'lib/src/lib-components/DsCard'
 
 export default {
   name: 'DatePickerCode',
   components: {
-    DsCard,
-    CodeViewer,
-    DsDatepicker
+    CodeViewer
   },
   data() {
     return {

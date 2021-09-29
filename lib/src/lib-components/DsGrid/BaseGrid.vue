@@ -27,14 +27,12 @@
 </template>
 
 <script>
-import { AgGridVue } from 'ag-grid-vue'
 import EntityDetailsRenderer from '@/lib-components/DsGrid/cellRenderers/EntityDetailsRenderer'
 import RouterLinkCellRenderer from '@/lib-components/DsGrid/cellRenderers/RouterLinkCellRenderer'
 
 export default {
   name: 'BaseGrid',
   components: {
-    AgGridVue
   },
   props: {
     rowData: {

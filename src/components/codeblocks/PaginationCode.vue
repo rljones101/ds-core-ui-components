@@ -35,12 +35,10 @@
 
 <script>
 import CodeViewer from '@/components/CodeViewer'
-import DsPagination from 'lib/src/lib-components/DsPagination'
 export default {
   name: 'PaginationCode',
   components: {
-    CodeViewer,
-    DsPagination
+    CodeViewer
   },
   data() {
     return {

@@ -1,34 +1,9 @@
 <script>
 import Vue from 'vue';
-import {
-  DsTabs,
-  DsButton,
-  DsCard,
-  DsLoader,
-  DsDatepicker,
-  DsSearch,
-  DsSelect,
-  DsMenuDropdown,
-  DsSnackBar,
-  DsGrid,
-  DsBreadcrumbs
-} from '@/lib-components'
 
 export default Vue.extend({
   name: 'ServeDev',
-  components: {
-    DsBreadcrumbs,
-    DsSnackBar,
-    DsSelect,
-    DsSearch,
-    DsLoader,
-    DsDatepicker,
-    DsButton,
-    DsCard,
-    DsMenuDropdown,
-    DsTabs,
-    DsGrid
-  },
+  components: {},
   data() {
     return {
       searchValue: null,
@@ -197,12 +172,9 @@ export default Vue.extend({
       @onSelectedTab="onSelectedTab"
     />
     <pre>selected tab: {{ selectedTab }}</pre>
-    <ds-breadcrumbs />
   </div>
 </template>
 <style lang="scss">
-@use 'styles/app-theme.scss';
-@use 'styles/transitions';
 @import url('//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons');
 
 #app {

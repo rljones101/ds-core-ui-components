@@ -26,12 +26,10 @@
 
 <script>
 import CodeViewer from '@/components/CodeViewer'
-import DsLoader from 'lib/src/lib-components/DsLoader'
 
 export default {
   name: 'BreadcrumbsCode',
   components: {
-    DsLoader,
     CodeViewer
   }
 }

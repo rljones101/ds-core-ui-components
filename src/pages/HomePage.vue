@@ -4,10 +4,10 @@
     <p>This is documentation that will cover how to use the internal components that are used across different projects.</p>
     <h3>Installation</h3>
     <p>How to add the web components to your project</p>
-    <vue-code-highlight language="JavaScript">
+    <vue-code-highlight>
       <pre>
       <code>
-        "core-ui-components": "https://github.com/&lt;user>/core-ui-components.git"
+        npm i ds-core-ui-components
       </code>
     </pre>
     </vue-code-highlight>
@@ -16,11 +16,9 @@
     <vue-code-highlight language="javascript">
       <pre>
         <code>
-        // TIP: Only import the components that you need
-        import { HelloWorld } from 'core-coupon-components/dist/vueComponents/core-ui.umd'
-
-        // imports the css styles
-        import 'core-coupon-components/dist/vueComponents/core-ui.css'
+        import Vue from 'vue'
+        import DsCoreUiComponents from 'ds-core-ui-components'
+        Vue.use(DsCoreUiComponents)
         </code>
       </pre>
     </vue-code-highlight>
