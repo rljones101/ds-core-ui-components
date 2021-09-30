@@ -65,6 +65,7 @@ export default {
   }
 
   a:hover {
+    text-decoration: none;
     border: 2px solid var(--main-view-bg-color);
   }
 }

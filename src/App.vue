@@ -3,7 +3,6 @@
     <div class="app-layout">
       <div class="header">
         <h1>Ds Core UI Components</h1>
-        <small>theme: soft-ui-theme</small>
       </div>
       <div class="content">
         <side-nav />
@@ -37,6 +36,7 @@ export default {
 
 <style lang="scss">
 @use "styles/transitions";
+@import '~ds-core-ui-components/dist/ds-core-ui-components.min.css';
 #app {
   background-color: var(--main-view-bg-color);
   min-height: 100vh;
