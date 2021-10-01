@@ -19,21 +19,22 @@ export default {
 @use '../styles/mixins';
 
 $denseHeight: 32px;
+$defaultHeight: 36px;
 
 .ds-button {
   cursor: pointer;
   position: relative;
   min-width: 88px;
-  display: flex;
+  display: inline-block;
+  white-space: nowrap;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   border-radius: var(--button-border-radius);
   font-weight: 600;
   background-color: transparent;
-  border: none;
-  height: 36px;
-  line-height: 36px;
+  height: $defaultHeight;
+  line-height: $defaultHeight;
   color: var(--button-color);
   text-transform: uppercase;
   margin: 6px 8px;
@@ -41,6 +42,9 @@ $denseHeight: 32px;
   user-select: none;
   transition: all .3s ease;
   overflow: hidden;
+  outline: none;
+  vertical-align: top;
+  border: 2px solid transparent;
 }
 
 .ds-icon-button {
@@ -49,6 +53,10 @@ $denseHeight: 32px;
   height: 40px !important;
   margin: 0 6px !important;
   border-radius: 50% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .ds-button:active,
@@ -60,14 +68,17 @@ $denseHeight: 32px;
 }
 
 .ds-button::after {
-  content: " ";
+  content: "";
   border-radius: var(--button-border-radius);
   position: absolute;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background-color: currentColor;
   opacity: 0;
-  transition: all .3s ease;
+  transition: .4s cubic-bezier(.4,0,.2,1);
+  will-change: background-color, opacity;
 }
 
 .ds-button:not([disabled]):hover {
@@ -82,27 +93,22 @@ $denseHeight: 32px;
 
 .ds-button.ds-primary {
   border: 2px solid var(--primary-color);
-  font-size: var(--font-size);
   color: var(--primary-color);
-  border-radius: var(--app-border-radius);
 }
 
 .ds-button.ds-accent {
   color: var(--accent-color);
   border: 2px solid var(--accent-color);
-  border-radius: var(--app-border-radius);
 }
 
 .ds-button.ds-primary:hover {
   background-color: var(--primary-color);
   color: white;
-  border: transparent;
 }
 
 .ds-button.ds-accent:hover {
   background-color: var(--accent-color);
   color: white;
-  border: transparent;
 }
 
 .ds-button.ds-raised {

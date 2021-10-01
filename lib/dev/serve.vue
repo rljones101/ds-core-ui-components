@@ -136,7 +136,7 @@ export default Vue.extend({
     </div>
     <div class="row-container">
       <small>Flat</small>
-      <ds-button>Default</ds-button>
+      <ds-button>Call to Action</ds-button>
       <ds-button class="ds-primary">
         Primary
       </ds-button>
