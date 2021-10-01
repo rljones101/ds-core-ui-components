@@ -75,7 +75,12 @@ export default Vue.extend({
         }
       ],
       selectedCrumb: null,
-      dateValue: new Date()
+      dateValue: new Date(),
+      dsAdvancedSelect: {
+        selected: null,
+        totalResults: 100,
+        options: [],
+      }
     }
   },
   created () {
@@ -95,6 +100,15 @@ export default Vue.extend({
       this.rowData = users.data
       this.totalResults = users.meta.pagination.total
       this.isLoading = false
+
+      // DsAdvancedSelect
+      this.dsAdvancedSelect.totalResults = this.totalResults
+      this.dsAdvancedSelect.options = this.rowData.map(user => {
+        return {
+          id: user.id,
+          name: user.name
+        }
+      })
     },
     async onGridUpdated(params) {
       this.currentPage = params.page
@@ -120,9 +134,91 @@ export default Vue.extend({
         @grid:updated="onGridUpdated"
       />
     </div>
-    <ds-button class="ds-primary">
-      Click on me
-    </ds-button>
+    <div class="row-container">
+      <small>Flat</small>
+      <ds-button>Default</ds-button>
+      <ds-button class="ds-primary">
+        Primary
+      </ds-button>
+      <ds-button class="ds-accent">
+        Accent
+      </ds-button>
+      <ds-button :disabled="true">
+        Disabled
+      </ds-button>
+    </div>
+    <div class="row-container">
+      <small>Raised</small>
+      <ds-button class="ds-raised">
+        Default
+      </ds-button>
+      <ds-button class="ds-raised ds-primary">
+        Primary
+      </ds-button>
+      <ds-button class="ds-raised ds-accent">
+        Accent
+      </ds-button>
+      <ds-button
+        class="ds-raised"
+        :disabled="true"
+      >
+        Disabled
+      </ds-button>
+    </div>
+    <div class="row-container">
+      <small>Dense</small>
+      <ds-button class="ds-dense ds-primary">
+        Flat
+      </ds-button>
+      <ds-button class="ds-dense ds-raised ds-primary">
+        Raised
+      </ds-button>
+    </div>
+    <div class="row-container">
+      <small>Flat</small>
+      <ds-button class="ds-icon-button">
+        <ds-icon>home</ds-icon>
+      </ds-button>
+      <ds-button class="ds-icon-button ds-primary">
+        <ds-icon>menu</ds-icon>
+      </ds-button>
+      <ds-button class="ds-icon-button ds-accent">
+        <ds-icon>thumb_up</ds-icon>
+      </ds-button>
+      <ds-button
+        class="ds-icon-button"
+        disabled
+      >
+        <ds-icon>add</ds-icon>
+      </ds-button>
+    </div>
+    <div class="row-container">
+      <small>Raised</small>
+      <ds-button class="ds-raised ds-icon-button">
+        <ds-icon>home</ds-icon>
+      </ds-button>
+      <ds-button class="ds-raised ds-icon-button ds-primary">
+        <ds-icon>menu</ds-icon>
+      </ds-button>
+      <ds-button class="ds-raised ds-icon-button ds-accent">
+        <ds-icon>thumb_up</ds-icon>
+      </ds-button>
+      <ds-button
+        class="ds-raised ds-icon-button"
+        disabled
+      >
+        <ds-icon>add</ds-icon>
+      </ds-button>
+    </div>
+    <div class="row-container">
+      <small>Dense</small>
+      <ds-button class="ds-raised ds-dense ds-icon-button ds-primary">
+        <ds-icon>person</ds-icon>
+      </ds-button>
+      <ds-button class="ds-raised ds-dense ds-icon-button md-raised ds-primary">
+        <ds-icon>cached</ds-icon>
+      </ds-button>
+    </div>
     <ds-card>
       <template #header>
         Card header
@@ -176,17 +272,24 @@ export default Vue.extend({
       @onSelectedTab="onSelectedTab"
     />
     <pre>selected tab: {{ selectedTab }}</pre>
+    <div class="row-container">
+      <ds-advanced-select
+        v-model="dsAdvancedSelect.selected"
+        label="users"
+        :options="dsAdvancedSelect.options"
+        :total-results="dsAdvancedSelect.totalResults"
+        @loadMore="getUsers"
+      />
+    </div>
+    <div class="row-container">
+      <p>selected:</p> <pre>{{ dsAdvancedSelect.selected }}</pre>
+    </div>
   </div>
 </template>
 <style lang="scss">
 @import url('//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons');
 
 #app {
-  //--main-color: #40a1c9;
-  //--row-font-color: black;
-  //--row-border-color: #f0f7ff;
-  //--main-view-bg-color: rgba(239, 239, 239, 0.82);
-
   max-width: 800px;
   margin: 1rem auto;
   padding: 1rem;
@@ -194,10 +297,6 @@ export default Vue.extend({
   flex-direction: column;
   gap: 1rem;
   background-color: white;
-
-}
-
-.ds-grid {
 
 }
 .menu-item {

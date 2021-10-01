@@ -183,7 +183,7 @@ export default {
           white-space: nowrap;
           border-bottom: none;
           background-color: var(--main-view-bg-color);
-          color: var(--button-color)
+          color: var(--primary-color)
         }
 
         .expand-icon {

@@ -76,7 +76,7 @@ export default {
     .ds-tabs-container {
         display: flex;
         flex-direction: row;
-        color: var(--main-font-color);
+        color: var(--font-color);
         border-bottom: 1px solid var(--main-view-bg-color);
         background-color: var(--main-color);
 
@@ -91,16 +91,16 @@ export default {
             text-transform: uppercase;
             background-color: var(--main-color);
             border: none;
-            color: var(--main-font-color);
+            color: var(--font-color);
 
             &.active {
-              color: var(--button-color);
-              border-bottom: 2px solid var(--button-color);
+              color: var(--primary-color);
+              border-bottom: 2px solid var(--primary-color);
             }
 
             &:hover:not(.active) {
               background-color: var(--main-view-bg-color);
-              color: var(--button-color);
+              color: var(--primary-color);
             }
         }
     }

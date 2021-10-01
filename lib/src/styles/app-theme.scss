@@ -13,7 +13,6 @@
 @use "AgGrid";
 
 // Component styles
-@use "DsButton";
 @use "DsCard";
 @use "DsDatepicker";
 @use "DsGrid";
@@ -37,23 +36,25 @@
   // This color changes the main content background color and input backgrounds
   --main-view-bg-color: #f0f7ff;
 
+  // Primary and accent colors
+  --primary-color: #48A8FF;
+  --accent-color: orange;
+
   // Border for nav and cards
   --app-border-radius: 5px;
 
   // These two colors change the borders/underlines and font colors
   --main-third-color: #AFD2E9;
   --card-and-table-text-colors: #216db0;
-  --main-alt-color: #48A8FF;
+  --main-alt-color: var(--primary-color);
 
   // Buttons
-  --button-color: #48A8FF;
   --button-border-radius: 5px;
+  --disabled-color: rgba(0,0,0,.26);
+  --disabled-background-color: rgba(0,0,0,.12);
 
   // Links
-  --link-color: #48A8FF;
-
-  --accent-color: orange;
-  --disabled-color: #ececec;
+  --link-color: var(--primary-color);
 
   // shadow color
   --shadow-color: rgba(56, 64, 81, 0.16);
@@ -64,7 +65,7 @@
   --input-error-color: #ff578c;
   --input-padding: 0 1rem;
   --input-height: 36px;
-  --input-color: #48A8FF;
+  --input-color: var(--primary-color);
 
   // table colors
   --row-border-color: rgba(0,0,0,0.01);
@@ -75,14 +76,14 @@
 
   // OVERRIDE MD THEMES ===========================================
   --md-theme-default-primary-on-background: var(--color-link-and-buttons);
-  --md-theme-default-text-primary-on-background: var(--main-font-color);
+  --md-theme-default-text-primary-on-background: var(--font-color);
   --md-theme-default-primary: var(--color-link-and-buttons);
   --md-theme-default-background: var(--main-color);
 
   // Accent colors
   --md-theme-default-accent: var(--accent-color);
   --md-theme-default-accent-on-background: var(--accent-color);
-  --md-theme-default-accent-on-: var(--accent-color, rgba(0,0,0,0.7));
+  --md-theme-default-accent-on-: var(--accent-color);
 }
 
 .field-name {

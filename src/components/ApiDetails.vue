@@ -2,7 +2,7 @@
   <div class="api-details">
     <h4>API - {{ title }}</h4>
     <ds-tabs
-      :tabs="['Props', 'Events']"
+      :tabs="tabs"
       @onSelectedTab="selectedTab"
     />
     <div>
@@ -79,7 +79,17 @@ export default {
   },
   data () {
     return {
-      activeTab: 'Props'
+      activeTab: 'Props',
+      tabs: []
+    }
+  },
+  created () {
+    if (this.cProps.length) {
+      this.tabs.push('Props')
+    }
+
+    if (this.cEvents.length) {
+      this.tabs.push('Events')
     }
   },
   methods: {

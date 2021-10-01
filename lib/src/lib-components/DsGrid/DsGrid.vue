@@ -264,9 +264,7 @@ export default {
         page: this.page,
         skip: this.skip
       }
-      if (this.page > 1) {
-        this.$emit('grid:updated', params)
-      }
+      this.$emit('grid:updated', params)
     },
     /**
      * This method is called from the 'actionsRenderer' to emit the button click events

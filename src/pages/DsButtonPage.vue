@@ -6,25 +6,25 @@
       :c-props="cProps"
       :c-events="cEvents"
     />
+    <ButtonIconCode />
+    <api-details
+      :title="buttonIcon.title"
+      :c-props="buttonIcon.props"
+    />
   </div>
 </template>
 
 <script>
 import ButtonCode from '@/components/codeblocks/ButtonCode'
 import ApiDetails from '@/components/ApiDetails'
+import ButtonIconCode from '@/components/codeblocks/ButtonIconCode'
 export default {
   name: 'DsButtonPage',
-  components: {ApiDetails, ButtonCode},
+  components: { ButtonIconCode, ApiDetails, ButtonCode },
   data () {
     return {
       cPropTitle: 'ds-button',
       cProps: [
-        {
-          name: 'href',
-          type: 'String',
-          description: 'Creates an anchor on the button.',
-          default: 'null'
-        },
         {
           name: 'type',
           type: 'String',
@@ -36,12 +36,6 @@ export default {
           type: 'Boolean',
           description: 'Disabled the button and prevents it\'s actions',
           default: 'false'
-        },
-        {
-          name: 'md-ripple',
-          type: 'Boolean',
-          description: 'Enables/Disables the ripple effect',
-          default: 'true'
         }
       ],
       cEvents: [
@@ -50,7 +44,17 @@ export default {
           description: 'Triggered after a mouse click',
           value: '$event'
         }
-      ]
+      ],
+      buttonIcon: {
+        title: 'ds-icon',
+        props: [
+          {
+            name: 'ds-icon-button',
+            description: 'Button class',
+            default: ''
+          }
+        ]
+      }
     }
   }
 }

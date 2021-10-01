@@ -80,9 +80,6 @@ export default {
       return maxRow > this.totalResults ? this.totalResults : maxRow
     }
   },
-  created () {
-    this.goToPage( this.currentPage)
-  },
   methods: {
     goToNextPage () {
       let activePage = this.currentPage
