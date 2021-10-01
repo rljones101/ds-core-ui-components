@@ -1,0 +1,8 @@
+@use 'variables';
+@use 'mixins';
+
+.ds-date-picker {
+  input.field-input {
+    @include mixins.box-inset-soft-shadow(variables.$themeName);
+  }
+}

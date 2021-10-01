@@ -77,12 +77,14 @@ export default {
 
 .btn.btn-link {
   background-color: transparent;
-  color: var(--color-link-and-buttons);
+  color: var(--font-color) !important;
   border: none;
   padding: 0;
+  font-weight: bold;
+  border-radius: var(--app-border-radius);
 
   &.disabled {
-    color: var(--disabled-color);
+    color: var(--disabled-color) !important;
   }
 }
 

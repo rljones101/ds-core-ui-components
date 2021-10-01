@@ -1,0 +1,8 @@
+.ds-card, .page-layout-content {
+  border-radius: var(--app-border-radius);
+
+  // DsCard header
+  .ds-card-header {
+    color: var(--font-color) !important;
+  }
+}

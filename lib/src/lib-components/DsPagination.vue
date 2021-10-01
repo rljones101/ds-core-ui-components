@@ -129,9 +129,11 @@ export default {
   .nav-btn {
     min-width: 0;
     max-width: 24px;
+    color: var(--font-color) !important;
   }
   .nav-btn[disabled] {
     border: none;
+    color: var(--disabled-color) !important;
   }
 
   .paging-number {

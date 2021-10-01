@@ -1,0 +1,8 @@
+@use 'variables';
+@use 'mixins';
+
+.ds-select .selected-item, .ds-filter, .ds-input input, textarea {
+  @include mixins.box-inset-soft-shadow(variables.$themeName);
+  border-radius: var(--app-border-radius);
+  border: none;
+}

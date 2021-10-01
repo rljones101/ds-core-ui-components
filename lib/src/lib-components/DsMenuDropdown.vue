@@ -53,5 +53,9 @@ export default {
 </script>
 
 <style lang="scss">
-
+  .md-list {
+    .menu-item {
+      color: var(--font-color);
+    }
+  }
 </style>

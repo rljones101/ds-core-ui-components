@@ -1,0 +1,16 @@
+.v--modal {
+  background-color: var(--main-color) !important;
+  border-radius: var(--app-border-radius);
+}
+
+.v--modal-overlay {
+  // Need to set this to fix for showing a select dropdown in the modal
+  z-index: 10 !important;
+}
+
+// Modal title
+#ds-base-modal {
+  .modal-title {
+    color: var(--font-color);
+  }
+}

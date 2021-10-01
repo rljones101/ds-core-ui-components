@@ -1,0 +1,48 @@
+@use 'variables';
+@use 'mixins';
+
+html.md-theme-default {
+  --md-theme-default-background-variant: var(--main-view-bg-color, #fafafa);
+}
+
+.md-dialog {
+
+  .md-dialog-title {
+    margin-bottom: 0;
+  }
+
+  .md-title {
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 1rem;
+    font-weight: bold;
+    color: var(--main-view-bg-color)
+  }
+  .md-dialog-actions {
+    background-color: var(--main-view-bg-color);
+  }
+}
+
+// Menu content
+.md-menu-content {
+  z-index: 500 !important;
+}
+
+// Menu list
+.md-list-item .md-list-item-container{
+  font-family: var(--font-family) !important;
+  color: var(--font-color) !important;
+  padding: 0;
+}
+
+// Menu selected item
+.md-list-item.selected  .md-list-item-container {
+  font-weight: bold;
+  color: var(--button-color) !important;
+}
+
+// MdButton
+.md-button.md-icon-button {
+  @include mixins.box-soft-shadow(variables.$themeName);
+  background-color: white;
+}

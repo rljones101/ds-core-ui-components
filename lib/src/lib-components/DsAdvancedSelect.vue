@@ -236,7 +236,6 @@ export default {
 </script>
 
 <style lang="scss">
-@use "../../../src/styles/variables";
   .ds-select {
 
     .select-container {
@@ -266,12 +265,12 @@ export default {
 
     .select-container.disabled {
       background-color: transparent;
-      color: rgba(255,255,255,0.5);
+      color: var(--ds-advanced-selected-disabled-color, rgba(255,255,255,0.5));
     }
 
     .select-container.disabled .selected-item {
       pointer-events: none;
-      color: rgba(255,255,255,0.5);
+      color: var(--ds-advanced-selected-item-color, rgba(255,255,255,0.5));
     }
   }
 

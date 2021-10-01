@@ -1,0 +1,29 @@
+.content-container {
+  display: flex;
+  flex-flow: column wrap;
+  background: transparent;
+}
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+}
+
+.flex-space-between {
+  justify-content: space-between;
+}
+
+.flex-center-space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.row-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  > .field-value {
+    margin: 0 0 0 1rem !important;
+  }
+}

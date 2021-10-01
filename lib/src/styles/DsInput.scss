@@ -1,0 +1,22 @@
+.ds-input, .ds-select {
+  flex: 1;
+  flex-direction: column;
+
+  label {
+    display: block;
+    margin: 0 0 1rem;
+    font-weight: bold;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: inherit;
+    color: var(--font-color);
+  }
+
+  input, select {
+    height: 36px;
+    line-height: 36px;
+    color: var(--input-color);
+    font-size: var(--font-size);
+    padding: 0 1rem;
+  }
+}

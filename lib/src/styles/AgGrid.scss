@@ -1,0 +1,100 @@
+// NOTE: Had to add this 'use' module because there is an 'extend .ds-scrollbar used in this file
+@use 'DsScrollbar';
+
+.ag-grid.ag-theme-material {
+  --ag-checkbox-checked-color: var(--color-link-and-buttons);
+  --ag-checkbox-unchecked-color: var(--color-primary);
+
+  background-color: transparent;
+  font-family: var(--main-font, inherit);
+  color: var(--font-color);
+  height: 100%;
+  width: 100%;
+
+  .ag-center-cols-viewport {
+    overflow-x: hidden;
+  }
+
+  .ag-header {
+    border-bottom: none;
+    background-color: var(--main-view-bg-color);
+    font-family: inherit !important;
+  }
+
+  .ag-header-cell:last-child .ag-header-cell-resize {
+    display: none
+  }
+
+  .ag-header-cell {
+    display: flex;
+    align-items: center;
+    color: var(--font-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: transparent;
+
+    &:hover {
+      background-color: var(--hover-color) !important;
+    }
+  }
+
+  .ag-header-cell-resize {
+    background-color: var(--font-color, rgba(255,255,255, 0.5));
+    width: 3px;
+    top: 30%;
+    right: 0;
+    height: 40%;
+    border-radius: 4px;
+    transform: scaleY(1);
+    transition: transform 300ms ease;
+
+    &:hover {
+      background-color: var(--button-color);
+      transform: scaleY(2);
+    }
+  }
+
+  .ag-body-viewport {
+    @extend .ds-scrollbar;
+    overflow: auto !important;
+  }
+
+  .ag-body-horizontal-scroll-viewport {
+    @extend .ds-scrollbar;
+  }
+
+  .ag-row {
+    color: var(--row-font-color, #216db0);
+    border-color: var(--row-border-color, #f0f7ff) !important;
+  }
+
+  .ag-row-odd {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .ag-row-hover {
+    background-color: var(--row-hover-background, #f0f7ff);
+    color: var(--row-hover-color, #216db0);
+    font-weight: bold;
+
+    .actions-renderer {
+      opacity: 1 !important;
+    }
+  }
+
+  .ag-icon, .ag-header-cell-resize {
+    color: var(--button-color)
+  }
+
+  .ag-menu {
+    background-color: var(--main-secondary-color)
+  }
+
+  .ag-paging-panel .ag-paging-row-summary-panel, .ag-paging-panel .ag-paging-page-summary-panel {
+    color: var(--main-secondary-color);
+  }
+
+  .ag-paging-panel {
+    border-top-color: var(--main-view-bg-color);
+  }
+}

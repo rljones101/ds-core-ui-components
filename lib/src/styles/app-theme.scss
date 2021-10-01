@@ -1,34 +1,59 @@
 @use "variables";
 @use "mixins";
 
-$themeName: 'soft-ui-theme';
+@use "base";
+@use "BoxShadows";
+@use "layouts";
+@use "modal";
+
+// Material theme overrides
+@use "material";
+
+// AgGrid theme overrides
+@use "AgGrid";
+
+// Component styles
+@use "DsButton";
+@use "DsCard";
+@use "DsDatepicker";
+@use "DsGrid";
+@use "DsInput";
+@use "DsScrollbar";
+@use "DsSearch";
+@use "DsSelect";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 :root {
-  --main-font: 'Barlow', sans-serif;
+  // Fonts
+  --font-family: 'Montserrat', sans-serif;
+  --font-color: #216db0;
+  --font-size: 14px;
 
   // Theme colors for application
-  // This color changes the left nav and cards
+  // Example: Use this color for the left nav and cards
   --main-color: white;
 
   // This color changes the main content background color and input backgrounds
   --main-view-bg-color: #f0f7ff;
 
-  // This color will change the main body background color
-  --main-secondary-color: #FFFCF9;
+  // Border for nav and cards
+  --app-border-radius: 5px;
 
   // These two colors change the borders/underlines and font colors
   --main-third-color: #AFD2E9;
-  --main-font-color: #216db0;
   --card-and-table-text-colors: #216db0;
   --main-alt-color: #48A8FF;
 
-  // Button and link styles
+  // Buttons
   --button-color: #48A8FF;
+  --button-border-radius: 5px;
+
+  // Links
   --link-color: #48A8FF;
-  --color-link-and-buttons: #48A8FF;
+
   --accent-color: orange;
   --disabled-color: #ececec;
-  --button-border-radius: 10px;
 
   // shadow color
   --shadow-color: rgba(56, 64, 81, 0.16);
@@ -41,14 +66,11 @@ $themeName: 'soft-ui-theme';
   --input-height: 36px;
   --input-color: #48A8FF;
 
-
   // table colors
-  --row-border: rgba(0,0,0,0.1);
-  --row-font-color: rgba(255,255,255,0.8);
+  --row-border-color: rgba(0,0,0,0.01);
+  --row-font-color: #216db0;
 
-  --app-border-radius: 5px;
-
-  --field-name-color: ececec;
+  --field-name-color: #ececec;
   --field-value-color: var(--main-font-color);
 
   // OVERRIDE MD THEMES ===========================================
@@ -63,130 +85,8 @@ $themeName: 'soft-ui-theme';
   --md-theme-default-accent-on-: var(--accent-color, rgba(0,0,0,0.7));
 }
 
-a {
-  color: var(--link-color) !important;
-}
-
-html, body {
-  padding: 0;
-  margin: 0;
-}
-body {
-  display: flex;
-  flex-direction: column;
-  font-size: variables.$default-font-size !important;
-  color: var(--main-font-color);
-  *:focus {
-    outline: none;
-  }
-}
-.modified-date {
-  font-size: variables.$default-font-size;
-  color: var(--card-and-table-text-colors);
-  font-weight: normal;
-}
-
-.copyright {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 1rem;
-  color: var(--card-and-table-text-colors)
-}
-
-h1, h2, h3, h4 {
-  margin: 0;
-  padding: 0;
-}
-
-.content-container {
-  display: flex;
-  flex-flow: column wrap;
-  background: transparent;
-}
-
-.row-container {
-  display: flex;
-  flex-direction: row;
-}
-
-.grid-layout {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
-}
-
-.flex-space-between {
-  justify-content: space-between;
-}
-
-.flex-center-space-between {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-body::-webkit-scrollbar, .ds-scrollbar::-webkit-scrollbar, .md-scrollbar::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-  border-radius: 8px;
-}
-
-body::-webkit-scrollbar-button, .ds-scrollbar::-webkit-scrollbar-button, .md-scrollbar::-webkit-scrollbar-button {
-  display: none !important;
-}
-
-body::-webkit-scrollbar-track, .ds-scrollbar::-webkit-scrollbar-track, .md-scrollbar::-webkit-scrollbar-track {
-  background: transparent !important;
-}
-
-body::-webkit-scrollbar-thumb, .ds-scrollbar::-webkit-scrollbar-thumb, .md-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--button-color) !important;
-  border-radius: 8px;
-}
-
-.content-container-shadow {
-  box-shadow: 0 3px 1px -2px var(--shadow-color), 0 2px 2px 0 var(--shadow-color), 0 1px 5px 0 var(--shadow-color);
-}
-
-.bg-gradient {
-  background-color: var(--main-color); /* Old browsers */
-  background: -moz-linear-gradient(top,  var(--main-color) 0%, var(--main-alt-color) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top,  var(--main-color) 0%, var(--main-alt-color) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom,  var(--main-color) 0%, var(--main-alt-color) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4069ff', endColorstr='#06ed94',GradientType=0 ); /* IE6-9 */
-}
-
-.v--modal {
-  background-color: var(--main-color) !important;
-  border-radius: var(--app-border-radius);
-}
-
-.v--modal-overlay {
-  // Need to set this to fix for showing a select dropdown in the modal
-  z-index: 10 !important;
-}
-
-.box-shadow {
-  box-shadow: 0 3px 1px -2px var(--shadow-color), 0 2px 2px 0 var(--shadow-color), 0 1px 5px 0 var(--shadow-color);
-}
-
-.box-inset-shadow {
-  box-shadow: inset 6px 6px 10px 0 rgba(0,0,0,0.2), -12px -12px 24px 0 rgba(255,255,255, 0.5);
-}
-
-.row-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  > .field-value {
-    margin: 0 0 0 1rem !important;
-  }
-}
-
 .field-name {
-  color: var(--main-font-color);
+  color: var(--font-color);
 }
 
 .field-value {
@@ -194,267 +94,14 @@ body::-webkit-scrollbar-thumb, .ds-scrollbar::-webkit-scrollbar-thumb, .md-scrol
   font-weight: bold;
 }
 
-// Card and Page layouts =======================
-.ds-card, .page-layout-content {
-  border-radius: var(--app-border-radius);
-
-  // DsCard header
-  .ds-card-header {
-    color: var(--main-font-color) !important;
-  }
-}
-// DsDatePicker styles =========================
-.ds-date-picker {
-  input.field-input {
-    @include mixins.box-inset-soft-shadow($themeName);
-  }
-
-  .header-picker {
-    color: var(--color-link-and-buttons);
-  }
-}
-
-// Pagination grid styles ========================
-.ds-pagination-grid-v2 {
-  box-shadow: none;
-}
-
 // Page title
 .page-title {
-  color: var(--main-font-color);
-}
-
-// Material theme overrides ======================
-.md-button.md-icon-button {
-  @include mixins.box-soft-shadow($themeName);
-  background-color: white;
-}
-
-// App controls ===================================
-
-// DsButton
-.ds-button {
-  border-radius: var(--button-border-radius);
-}
-
-// DsInput
-.ds-input, .ds-select {
-  flex: 1;
-  flex-direction: column;
-
-  label {
-    display: block;
-    margin: 0 0 1rem;
-    font-weight: bold;
-    align-items: center;
-    text-transform: uppercase;
-    font-family: inherit;
-    color: var(--card-and-table-text-colors);
-  }
-
-  input, select {
-    height: 36px;
-    line-height: 36px;
-    color: var(--input-color);
-  }
-}
-
-// DsSelect
-.ds-select .selected-item, .ds-filter, .ds-input input, textarea {
-  @include mixins.box-inset-soft-shadow($themeName);
-  border-radius: var(--app-border-radius);
-  border: none;
-}
-
-input, textarea {
-  padding: 0 10px;
-  border: none;
-  background-color: var(--main-view-bg-color);
-}
-
-input:focus, textarea:focus {
-  outline: none;
-  background-color: var(--input-focus-color);
-  box-shadow: inset 0 0 3px 0 dodgerblue;
-  border-color: var(--button-color)
-}
-
-::placeholder {
-  color: var(--helper-font-color);
-  opacity: 1; /* Firefox */
-}
-
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: var(--helper-font-color);
-}
-
-::-ms-input-placeholder { /* Microsoft Edge */
-  color: var(--helper-font-color);
-}
-
-.ds-search {
-  border-bottom: none;
-  background-color: transparent;
-}
-
-.actions-renderer .md-button {
-  @include mixins.box-soft-shadow($themeName);
-}
-
-.actions-renderer .delete-icon {
-  color: var(--button-color) !important;
-}
-
-// Modal =========================================
-
-// Modal title
-#ds-base-modal {
-  .modal-title {
-    color: var(--main-font-color);
-  }
+  color: var(--font-color);
 }
 
 // Module configuration form
 .configuration-form {
   label {
-    color: var(--main-font-color);
-  }
-}
-
-.v--modal {
-  background-color: var(--main-color) !important;
-  border-radius: var(--app-border-radius);
-}
-
-// Md Dialog theme
-.md-dialog {
-
-  .md-dialog-title {
-    margin-bottom: 0;
-  }
-
-  .md-title {
-    text-transform: uppercase;
-    font-size: 16px;
-    padding: 1rem;
-    font-weight: bold;
-    color: var(--main-view-bg-color)
-  }
-  .md-dialog-actions {
-    background-color: var(--main-view-bg-color);
-  }
-}
-
-// Menu content
-.md-menu-content {
-  z-index: 500 !important;
-}
-
-// Menu list
-.md-menu-content-container .md-list {
-  font-family: var(--main-font) !important;
-  padding: 0;
-}
-
-// Menu selected item
-.md-list-item.selected  .md-list-item-container {
-  font-weight: bold;
-  color: var(--color-link-and-buttons);
-}
-
-// Global AgGrid styles ==========================================
-.ag-grid.ag-theme-material {
-  --ag-checkbox-checked-color: var(--color-link-and-buttons);
-  --ag-checkbox-unchecked-color: var(--color-primary);
-  --row-font-color: var(--main-font-color);
-  --hover-color: var(--main-view-bg-color);
-
-  background-color: transparent;
-  font-family: var(--main-font);
-  color: var(--card-and-table-text-colors);
-  height: 100%;
-  width: 100%;
-
-  .ag-center-cols-viewport {
-    overflow-x: hidden;
-  }
-
-  .ag-header {
-    border-bottom: none;
-    background-color: var(--main-view-bg-color);
-    font-family: inherit !important;
-  }
-
-  .ag-header-cell {
-    color: var(--card-and-table-text-colors);
-    text-transform: uppercase;
-    background-color: transparent;
-  }
-
-  .ag-header-cell:last-child .ag-header-cell-resize {
-    display: none
-  }
-
-  .ag-header-cell:hover {
-    background-color: var(--hover-color) !important;
-  }
-
-  .ag-header-cell-resize {
-    background-color: rgba(255,255,255, 0.5);
-    width: 3px;
-    height: 50%;
-    margin-top: 2px;
-    right: 0;
-    border-radius: 4px;
-    transition: transform 300ms ease-in-out;
-  }
-
-  .ag-header-cell-resize:hover{
-    background-color: var(--button-color);
-    transform: scaleY(2);
-  }
-
-  .ag-body-viewport {
-    @extend .ds-scrollbar !optional;
-    overflow: auto !important;
-  }
-
-  .ag-body-horizontal-scroll-viewport {
-    @extend .ds-scrollbar !optional;
-  }
-
-  .ag-row {
-    color: var(--row-font-color);
-    border-color: var(--hover-color) !important;
-  }
-
-  .ag-row-odd {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .ag-row-hover {
-    background-color: var(--main-view-bg-color);
-    color: var(--main-font-color);
-    font-weight: bold;
-
-    .actions-renderer {
-      opacity: 1 !important;
-    }
-  }
-
-  .ag-icon, .ag-header-cell-resize {
-    color: var(--button-color)
-  }
-
-  .ag-menu {
-    background-color: var(--main-secondary-color)
-  }
-
-  .ag-paging-panel .ag-paging-row-summary-panel, .ag-paging-panel .ag-paging-page-summary-panel {
-    color: var(--main-secondary-color);
-  }
-
-  .ag-paging-panel {
-    border-top-color: var(--main-view-bg-color);
+    color: var(--font-color);
   }
 }

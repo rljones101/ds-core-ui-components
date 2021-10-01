@@ -1,0 +1,9 @@
+@use 'mixins';
+@use 'variables';
+.actions-renderer .md-button {
+  @include mixins.box-soft-shadow(variables.$themeName);
+}
+
+.actions-renderer .delete-icon {
+  color: var(--button-color) !important;
+}

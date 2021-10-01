@@ -177,14 +177,13 @@ export default {
           line-height: 36px;
           cursor: pointer;
           font-weight: normal;
-          padding: 0 10px;
+          padding: 0 1rem;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
-          /*border: 1px solid var(--main-secondary-color);*/
-          border-bottom: 1px solid var(--main-secondary-color);
+          border-bottom: none;
           background-color: var(--main-view-bg-color);
-          color: var(--link-color)
+          color: var(--button-color)
         }
 
         .expand-icon {
@@ -217,8 +216,6 @@ export default {
           background-color: var(--main-view-bg-color);
           border-radius: var(--app-border-radius);
           box-shadow: 0 3px 1px -2px var(--shadow-color), 0 2px 2px 0 var(--shadow-color), 0 1px 5px 0 var(--shadow-color);
-          /*border-bottom-left-radius: 5px;*/
-          /*border-bottom-right-radius: 5px;*/
 
           .list-item {
             height: 48px;
@@ -228,17 +225,17 @@ export default {
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            color: var(--main-font-color);
+            color: var(--font-color);
           }
 
           .list-item.selected {
-            color: var(--main-font-color);
+            color: var(--button-color);
             font-weight: bold;
           }
 
           .list-item:hover {
             background-color: var(--main-color);
-            color: var(--main-font-color);
+            color: var(--font-color);
           }
         }
 

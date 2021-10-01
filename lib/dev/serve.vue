@@ -74,7 +74,8 @@ export default Vue.extend({
           }
         }
       ],
-      selectedCrumb: null
+      selectedCrumb: null,
+      dateValue: new Date()
     }
   },
   created () {
@@ -130,7 +131,10 @@ export default Vue.extend({
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, beatae fuga ipsum nemo officia possimus quam quas temporibus vitae voluptatem.</p>
       </template>
     </ds-card>
-    <ds-datepicker label="Pick a date" />
+    <ds-datepicker
+      v-model="dateValue"
+      label="Pick a date"
+    />
 
     <ds-loader />
     <ds-search v-model="searchValue" />
@@ -178,11 +182,23 @@ export default Vue.extend({
 @import url('//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons');
 
 #app {
+  //--main-color: #40a1c9;
+  //--row-font-color: black;
+  //--row-border-color: #f0f7ff;
+  //--main-view-bg-color: rgba(239, 239, 239, 0.82);
+
   max-width: 800px;
   margin: 1rem auto;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  background-color: white;
+
+}
+
+.ds-grid {
+
 }
 .menu-item {
   padding: 5px 1rem;

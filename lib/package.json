@@ -1,6 +1,6 @@
 {
   "name": "ds-core-ui-components",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Digital Seat UI Core Components",
   "homepage": "https://github.com/DigitalSeat/ds-core-ui-components#readme",
   "main": "dist/ds-core-ui-components.ssr.js",
