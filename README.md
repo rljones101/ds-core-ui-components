@@ -45,6 +45,7 @@ npm run serve
 
 ## Creating and compiling new components
 
+
 When you are done creating a new component make sure to add the new component to the `index.js` file
 
 ### Example
