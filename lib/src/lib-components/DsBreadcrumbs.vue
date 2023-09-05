@@ -8,7 +8,7 @@
       >
         <span v-if="ci"> / </span>
         <ds-button
-          class="btn btn-link"
+          class="ds-dense"
           :class="{ disabled: isLast(ci) }"
           :disabled="isLast(ci)"
           @click="selected(crumb)"
@@ -77,10 +77,9 @@ export default {
 
 .btn.btn-link {
   background-color: transparent;
-  color: var(--font-color) !important;
+  color: var(--primary-color) !important;
   border: none;
   padding: 0;
-  font-weight: bold;
   border-radius: var(--app-border-radius);
 
   &.disabled {

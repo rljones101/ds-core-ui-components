@@ -5,33 +5,33 @@
       <span class="paging-number">{{ firstRow }}</span> to <span class="paging-number">{{ lastRow }}</span> of <span class="paging-number">{{ totalResults }}</span>
     </div>
     <ds-button
-      class="nav-btn"
+      class="ds-icon-button ds-dense"
       :disabled="currentPage === 1"
       @click="goToFirstPage"
     >
-      <span class="material-icons">first_page</span>
+      <ds-icon>first_page</ds-icon>
     </ds-button>
     <ds-button
-      class="nav-btn"
+      class="ds-icon-button ds-dense"
       :disabled="currentPage === 1"
       @click="goToPrevPage"
     >
-      <span class="material-icons">navigate_before</span>
+      <ds-icon>navigate_before</ds-icon>
     </ds-button>
     <div>Page <span class="paging-number">{{ currentPage }}</span> of <span class="paging-number">{{ totalPages }}</span></div>
     <ds-button
-      class="nav-btn"
+      class="ds-icon-button ds-dense"
       :disabled="(currentPage) === totalPages"
       @click="goToNextPage"
     >
-      <span class="material-icons">navigate_next</span>
+      <ds-icon>navigate_next</ds-icon>
     </ds-button>
     <ds-button
-      class="nav-btn"
+      class="ds-icon-button ds-dense"
       :disabled="currentPage === totalPages"
       @click="goToLastPage"
     >
-      <span class="material-icons">last_page</span>
+      <ds-icon>last_page</ds-icon>
     </ds-button>
   </div>
 </template>
@@ -126,7 +126,6 @@ export default {
   .nav-btn {
     min-width: 0;
     max-width: 24px;
-    color: var(--font-color) !important;
   }
   .nav-btn[disabled] {
     border: none;

@@ -24,10 +24,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 :root {
+  // Primary and accent colors
+  --primary-color: #48A8FF;
+  --accent-color: orange;
+
   // Fonts
   --font-family: 'Montserrat', sans-serif;
   --font-color: #216db0;
   --font-size: 14px;
+
+  // Scrollbar colors
+  --scrollbar-track-color: rgba(72, 168, 255, 0.5);
+  --scrollbar-thumb-color: var(--primary-color);
 
   // Theme colors for application
   // Example: Use this color for the left nav and cards
@@ -35,10 +43,6 @@
 
   // This color changes the main content background color and input backgrounds
   --main-view-bg-color: #f0f7ff;
-
-  // Primary and accent colors
-  --primary-color: #48A8FF;
-  --accent-color: orange;
 
   // Border for nav and cards
   --app-border-radius: 5px;
@@ -72,7 +76,7 @@
   --row-font-color: #216db0;
 
   --field-name-color: #ececec;
-  --field-value-color: var(--main-font-color);
+  --field-value-color: var(--font-color);
 
   // OVERRIDE MD THEMES ===========================================
   --md-theme-default-primary-on-background: var(--color-link-and-buttons);

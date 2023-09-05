@@ -27,15 +27,12 @@ $defaultHeight: 36px;
   min-width: 88px;
   display: inline-block;
   white-space: nowrap;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   border-radius: var(--button-border-radius);
   font-weight: 600;
   background-color: transparent;
   height: $defaultHeight;
   line-height: $defaultHeight;
-  color: var(--button-color);
+  color: var(--primary-color);
   text-transform: uppercase;
   margin: 6px 8px;
   padding: 0 8px;
@@ -44,7 +41,7 @@ $defaultHeight: 36px;
   overflow: hidden;
   outline: none;
   vertical-align: top;
-  border: 2px solid transparent;
+  border: none;
 }
 
 .ds-icon-button {
